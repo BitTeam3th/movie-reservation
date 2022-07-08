@@ -73,7 +73,6 @@ public class UserDao {
 	 * @return findId
 	 */
 	public boolean isExistId(String email) {
-		System.out.println("email:::"+ email);
 		String sql = " SELECT EMAIL FROM USER WHERE EMAIL = ?";
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -89,7 +88,6 @@ public class UserDao {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				System.out.println("1111111111");
 				findId = true;
 			}
 		} catch (SQLException e) {
