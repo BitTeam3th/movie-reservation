@@ -29,7 +29,7 @@ public class MovieDao {
 	public List<MovieDto> getMovieList(){
 		
 		String sql = " select id, title, content, rating, ticketing_rate, audience_number, "
-				   + " 		  genre, open_date, running_time, director, cast, poster "
+				   + " 		  genre, open_date, running_time, director, cast, img_src "
 				   + " from movie "
 				   + " order by id ";
 		
@@ -57,7 +57,7 @@ public class MovieDao {
 											rs.getDouble(5), 
 											rs.getInt(6), 
 											rs.getString(7), 
-											rs.getDate(8), 
+											rs.getString(8), 
 											rs.getInt(9), 
 											rs.getString(10),
 											rs.getString(11),
@@ -81,7 +81,7 @@ public class MovieDao {
 		MovieDto dto = new MovieDto();
 		
 		String sql = " SELECT id, title, content, rating, ticketing_rate, audience_number, "
-				   + " 		  genre, open_date, running_time, director, cast, poster "
+				   + " 		  genre, open_date, running_time, director, cast, img_src "
 				   + " FROM movie "
 				   + " WHERE id=? ";
 		
@@ -110,11 +110,11 @@ public class MovieDao {
 				dto.setTicketingRate(rs.getDouble(5));
 				dto.setAudienceNumber(rs.getInt(6));
 				dto.setGenre(rs.getString(7));
-				dto.setOpenDate(rs.getDate(8));
+				dto.setOpenDate(rs.getString(8));
 				dto.setRunningTime(rs.getInt(9));
 				dto.setDirector(rs.getString(10));
 				dto.setCast(rs.getString(11));
-				dto.setPoster(rs.getString(12));
+				dto.setImg_src(rs.getString(12));
 			}
 			
 			System.out.println("4/4 getMovieById success");
@@ -132,7 +132,7 @@ public class MovieDao {
 		
 		List<HashMap<String, Object>> list=new ArrayList<HashMap<String, Object>>();
 		
-		String sql = " SELECT m.id, m.title, m.poster, mt.time, mt.theater "
+		String sql = " SELECT m.id, m.title, m.img_src, mt.time, mt.theater "
 				   + " FROM movie m, movie_time mt"
 				   + " WHERE m.id = mt.movie_id AND m.id = ? ";
 		
@@ -157,7 +157,7 @@ public class MovieDao {
 				
 				map.put("id", rs.getInt(1));
 				map.put("title", rs.getString(2));
-				map.put("poster", rs.getString(3));
+				map.put("img_src", rs.getString(3));
 				map.put("time", rs.getString(4));
 				map.put("theater", rs.getString(5));
 	

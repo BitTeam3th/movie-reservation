@@ -29,6 +29,7 @@ for(int i=0;i<list.size();i++){
 %>
 
 <a href="movie?param=movieById&id=2">영화상세정보</a>
+<a href="movie?param=movieTimeListById&id=1">영화상영관및시간</a>
 </script>
 </body>
 </html>

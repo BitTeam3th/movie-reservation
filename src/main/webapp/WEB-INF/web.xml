@@ -19,7 +19,6 @@
 		<servlet-name>Reservation</servlet-name>
 		<url-pattern>/reservation</url-pattern>
 	</servlet-mapping>
-  
 	<servlet>
 		<servlet-name>User</servlet-name>
 		<servlet-class>controller.UserController</servlet-class>
@@ -40,6 +39,14 @@
 		<url-pattern>/movie</url-pattern>
 	</servlet-mapping>
 	
+	  <servlet>
+		  <servlet-name>MovieCrawling</servlet-name>
+		  <servlet-class>controller.MovieCrawlingController</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+		  <servlet-name>MovieCrawling</servlet-name>
+		  <url-pattern>/moviecrawling</url-pattern>
+	  </servlet-mapping>
   <servlet>
 	  <servlet-name>MovieCrawling</servlet-name>
 	  <servlet-class>controller.MovieCrawlingController</servlet-class>
