@@ -115,8 +115,8 @@ public class MovieDto implements Serializable{
 	public String getOpenDate() {
 		return openDate;
 	}
-	public void setOpenDate(String date) {
-		this.openDate = date;
+	public void setOpenDate(String openDate) {
+		this.openDate = openDate;
 	}
 	
 	/*
