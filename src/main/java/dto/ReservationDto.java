@@ -1,0 +1,104 @@
+package dto;
+
+import java.io.Serializable;
+
+/**
+ * 예약 DTO
+ * 
+ * @author BTC-N12
+ *
+ */
+public class ReservationDto implements Serializable {
+
+	/**
+	 * 직렬화
+	 */
+	private static final long serialVersionUID = -1371747420345907710L;
+	private int userId;
+	private String userEmail;
+	private String userName;
+	private String movieTitle;
+	private String movieImg;
+	private String movieTime;
+	private int reservationId;
+
+	public ReservationDto(int userId, String userEmail, String userName, String movieTitle, String movieImg,
+			String movieTime, int reservationId) {
+		super();
+		this.userId = userId;
+		this.userEmail = userEmail;
+		this.userName = userName;
+		this.movieTitle = movieTitle;
+		this.movieImg = movieImg;
+		this.movieTime = movieTime;
+		this.reservationId = reservationId;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getMovieTitle() {
+		return movieTitle;
+	}
+
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
+	}
+
+	public String getMovieImg() {
+		return movieImg;
+	}
+
+	public void setMovieImg(String movieImg) {
+		this.movieImg = movieImg;
+	}
+
+	public String getMovieTime() {
+		return movieTime;
+	}
+
+	public void setMovieTime(String movieTime) {
+		this.movieTime = movieTime;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public int getReservationId() {
+		return reservationId;
+	}
+
+	public void setReservationId(int reservationId) {
+		this.reservationId = reservationId;
+	}
+
+	@Override
+	public String toString() {
+		return "ReservationDto [userId=" + userId + ", userEmail=" + userEmail + ", userName=" + userName
+				+ ", movieTitle=" + movieTitle + ", movieImg=" + movieImg + ", movieTime=" + movieTime
+				+ ", reservationId=" + reservationId + "]";
+	}
+
+}
