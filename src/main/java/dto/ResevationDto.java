@@ -1,7 +1,17 @@
 package dto;
 
-public class ResevationDto {
+import java.io.Serializable;
+/**
+ * 예약 DTO
+ * @author BTC-N12
+ *
+ */
+public class ResevationDto implements Serializable{
 
+	/**
+	 * 직렬화
+	 */
+	private static final long serialVersionUID = -1371747420345907710L;
 	private int id;
 	private int userId;
 	private int movieId;
@@ -14,7 +24,9 @@ public class ResevationDto {
 		this.movieId = movieId;
 		this.movieTimeId = movieTimeId;
 	}
-
+	/*
+	 * 예약 seq를 돌려준다.
+	 */
 	public int getId() {
 		return id;
 	}
@@ -23,6 +35,9 @@ public class ResevationDto {
 		this.id = id;
 	}
 
+	/*
+	 * 사용자 아이디를 돌려준다
+	 */
 	public int getUserId() {
 		return userId;
 	}
@@ -31,6 +46,9 @@ public class ResevationDto {
 		this.userId = userId;
 	}
 
+	/*
+	 * 영화테이블 아이디를 돌려준다
+	 */
 	public int getMovieId() {
 		return movieId;
 	}
@@ -38,7 +56,9 @@ public class ResevationDto {
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
-
+	/*
+	 * 영화 상영 시간을 돌려준다
+	 */
 	public int getMovieTimeId() {
 		return movieTimeId;
 	}
