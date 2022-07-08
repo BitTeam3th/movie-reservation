@@ -52,10 +52,11 @@ public class MovieController extends HttpServlet{
 			int id = Integer.parseInt(req.getParameter("id"));
 			
 			MovieDao dao = MovieDao.getInstance();
-			
 			List<HashMap<String, Object>> dto = new ArrayList<HashMap<String, Object>>();
 			dto = dao.getMovieTimeListById(id);
 			req.setAttribute("movieTimeList",dto);
+			
+			forward("index3.jsp",req,resp);
 		}
 		
 	}

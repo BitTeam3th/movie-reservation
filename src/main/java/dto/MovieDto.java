@@ -1,7 +1,7 @@
 package dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class MovieDto implements Serializable{
 	
@@ -12,18 +12,18 @@ public class MovieDto implements Serializable{
 	private double ticketingRate; // 예매율
 	private int audienceNumber; // 관객수
 	private String genre; // 장르
-	private Date openDate; // 개봉일
+	private String openDate; // 개봉일
 	private int runningTime; // 러닝타임
 	private String director; // 감독
 	private String cast; // 출연
-	private String poster; // 포스터
+	private String img_src; // 포스터
 	
 	public MovieDto() {
 		
 	}
 	
 	public MovieDto(int id, String title, String content, double rating, double ticketingRate, int audienceNumber,
-			String genre, Date openDate, int runningTime, String director, String cast, String poster) {
+			String genre, String openDate, int runningTime, String director, String cast, String img_src) {
 		
 		this.id = id;
 		this.title = title;
@@ -36,7 +36,7 @@ public class MovieDto implements Serializable{
 		this.runningTime = runningTime;
 		this.director = director;
 		this.cast = cast;
-		this.poster = poster;
+		this.img_src = img_src;
 	}
 	
 	/*
@@ -112,11 +112,11 @@ public class MovieDto implements Serializable{
 	/*
 	 * 영화 개봉일을 리턴한다.
 	 */
-	public Date getOpenDate() {
+	public String getOpenDate() {
 		return openDate;
 	}
-	public void setOpenDate(Date openDate) {
-		this.openDate = openDate;
+	public void setOpenDate(String date) {
+		this.openDate = date;
 	}
 	
 	/*
@@ -152,10 +152,10 @@ public class MovieDto implements Serializable{
 	/*
 	 * 영화 포스터 이미지 주소를 리턴한다.
 	 */
-	public String getPoster() {
-		return poster;
+	public String getImg_src() {
+		return img_src;
 	}
-	public void setPoster(String poster) {
-		this.poster = poster;
+	public void setImg_src(String img_src) {
+		this.img_src = img_src;
 	}
 }
