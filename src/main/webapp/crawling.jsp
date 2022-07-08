@@ -48,17 +48,25 @@ $(function () {
 				for (var i = 0; i < movies.Movies.ItemCount; i++) {
 					if(movies.Movies.Items[i].MovieNameKR != "AD"){
 						let buttontag = document.createElement('button');
-						textNode = document.createTextNode(movies.Movies.Items[i].RepresentationMovieCode);
+						textNode = document.createTextNode("DB에 집어넣기");
 						buttontag.name = "getmovie";
 						buttontag.id = movies.Movies.Items[i].RepresentationMovieCode;
 						buttontag.type = "button";
 						buttontag.appendChild(textNode);
 						
+						let buttontag2 = document.createElement('button');
+						textNode2 = document.createTextNode("시간 가져오기");
+						buttontag2.name = "getmovietime";
+						buttontag2.id = movies.Movies.Items[i].MovieNameKR;
+						buttontag2.type = "button";
+						buttontag2.appendChild(textNode2);
+						
 						$(".movies").append(
 							$("<tr></tr>").append(
 								$("<td></td>").append(movies.Movies.Items[i].MovieNameKR + " "),
 								$("<td></td>").append(movies.Movies.Items[i].RepresentationMovieCode + " "),
-								$("<td></td>").append(buttontag)
+								$("<td></td>").append(buttontag),
+								$("<td></td>").append(buttontag2)
 							)
 						)
 					}
@@ -182,7 +190,22 @@ $(function () {
 				alert('error');
 			}
 		});
+	});
+	
+	
+	$(document).on("click", "button[name=getmovietime]", function() {
 		
+		$.ajax({
+			type:"post",
+			url:"./moviecrawling?param=gettime",
+			data:{	"title":$(this).attr('id') },
+			success:function( data ){
+				alert("success");
+			},
+			error:function(){
+				alert("error");
+			}
+		});
 	});
 	
 });
