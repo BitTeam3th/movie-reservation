@@ -34,9 +34,9 @@
 </style>
 </head>
 <body>
-<!-- <h2>login page</h2> -->
+<h2>login page</h2>
 <%-- 로그인 화면 --%>
-<%-- 	<div class="center">
+	<div class="center">
 		<form action="<%=request.getContextPath() %>/user" method="post">
 			<input type="hidden" name="param" value="loinAf">
 			<table border="1">
@@ -55,10 +55,10 @@
 				</tr>
 			</table>
 		</form>
-	</div> --%>
+	</div> 
 	
 	
-	<main id="content" role="main" class="contentArea on">
+<!-- 	<main id="content" role="main" class="contentArea on">
         <div class="loginContent">
             <div class="loginWrap lotteOn">
                 <h2 class="titLogin">
@@ -69,7 +69,7 @@
                         <div><input type="hidden" id="tempid" name="tempid"><input name="inId" type="text"
                                 placeholder="아이디 또는 이메일 아이디" id="inId" title="아이디 또는 이메일 입력">
                             <div class="alertTxt">
-                                <!---->
+                               
                             </div>
                         </div>
                         <div class="inputSet login">
@@ -78,17 +78,17 @@
                                     autocomplete="new-password" title="비밀번호 입력 (8~15자리 영문+숫자+특수문자 조합)"><button
                                     type="button"><span class="blind">비밀번호 숨기기</span></button></div>
                             <div class="alertTxt">
-                                <!---->
+                               
                             </div>
                         </div>
                     </div>
                     <div class="btnConfirmWrap"><button data-v-46bd225e=""
                             class="hasBgColor bgColorRed util sizeFull alignLeft"><span data-v-46bd225e=""
                                 class="inner">
-                                <!----><span data-v-46bd225e="" class="">
+                               <span data-v-46bd225e="" class="">
                                     로그인하기
                                 </span>
-                                <!----></span></button></div>
+                               </span></button></div>
                     <div class="autoLogin">
                         <div class="checkboxSet"><input id="checkbox1" type="checkbox" name="checkbox1"
                                 checked="checked"><label for="checkbox1">아이디 저장</label></div><input id="checkbox11"
@@ -105,33 +105,33 @@
                                     class="icon kakaoLogo"></span><span data-v-46bd225e="" class="">
                                     카카오로 시작하기
                                 </span>
-                                <!----></span></button><button data-v-46bd225e=""
+                               </span></button><button data-v-46bd225e=""
                             class="naverLoginBtn hasBgColor hasIcon bgColorNaver util sizeFull alignLeft"
                             title="새 창 열림"><span data-v-46bd225e="" class="inner"><span data-v-46bd225e=""
                                     class="icon naverLogo"></span><a data-v-46bd225e="" href="#" class="naver"
                                     style="display: none;"></a>
                                 네이버로 시작하기
-                                <!----></span></button><button data-v-46bd225e=""
+                               </span></button><button data-v-46bd225e=""
                             class="facebookLoginBtn hasBgColor hasIcon bgColorFacebook util sizeFull alignLeft"
                             title="새 창 열림"><span data-v-46bd225e="" class="inner"><span data-v-46bd225e=""
                                     class="icon facebookLogo"></span><span data-v-46bd225e="" class="">
                                     페이스북으로 시작하기
                                 </span>
-                                <!----></span></button><button data-v-46bd225e=""
+                               </span></button><button data-v-46bd225e=""
                             class="otherLoginBtn util sizeFull alignLeft" title="새 창 열림"><span data-v-46bd225e=""
                                 class="inner">
-                                <!----><span data-v-46bd225e="" class="">
+                               <span data-v-46bd225e="" class="">
                                     휴대폰으로 로그인
                                 </span>
-                                <!----></span></button>
-                        <!---->
+                               </span></button>
+                       
                     </div>
                 </div>
             </div>
         </div>
         <div id="modals-container"></div>
     </main>
-	
+	 -->
 	
 	
 	
