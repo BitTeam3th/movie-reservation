@@ -12,7 +12,7 @@ public class MovieDto implements Serializable{
 	private double ticketingRate; // 예매율
 	private int audienceNumber; // 관객수
 	private String genre; // 장르
-	private Date openDate; // 개봉일
+	private String openDate; // 개봉일
 	private int runningTime; // 러닝타임
 	private String director; // 감독
 	private String cast; // 출연
@@ -23,7 +23,7 @@ public class MovieDto implements Serializable{
 	}
 	
 	public MovieDto(int id, String title, String content, double rating, double ticketingRate, int audienceNumber,
-			String genre, Date openDate, int runningTime, String director, String cast, String poster) {
+			String genre, String openDate, int runningTime, String director, String cast, String poster) {
 		
 		this.id = id;
 		this.title = title;
@@ -112,10 +112,10 @@ public class MovieDto implements Serializable{
 	/*
 	 * 영화 개봉일을 리턴한다.
 	 */
-	public Date getOpenDate() {
+	public String getOpenDate() {
 		return openDate;
 	}
-	public void setOpenDate(Date openDate) {
+	public void setOpenDate(String openDate) {
 		this.openDate = openDate;
 	}
 	
