@@ -18,6 +18,11 @@ public class DBConnection {
 	}
 
 	public static Connection getConnection() {
+<<<<<<< HEAD
+		
+
+=======
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 		String url = "jdbc:mysql://ssd018.synology.me:8806/bit";
 		String user = "bit";
 		String password = "!Q2w3e4r5t";

@@ -6,6 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+<<<<<<< HEAD
+
+/**
+ * 사용자 Controller
+=======
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
@@ -15,6 +20,7 @@ import net.sf.json.JSONObject;
 /**
  * 사용자 Controller
  * 
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
  * @author BTC-N12
  *
  */
@@ -29,16 +35,25 @@ public class UserController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
+<<<<<<< HEAD
+	
+	/**
+	 * 모든 방식의 servlet 요청을 처리한다.
+=======
 
 	/**
 	 * 모든 방식의 servlet 요청을 처리한다.
 	 * 
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 	 * @param req
 	 * @param resp
 	 * @throws ServletException
 	 * @throws IOException
 	 */
 	public void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
+		
+=======
 		req.setCharacterEncoding("utf-8");
 		String param = req.getParameter("param");
 		
@@ -104,5 +119,6 @@ public class UserController extends HttpServlet {
 			
 			resp.sendRedirect("message.jsp?msg=" + msg);
 		}
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 	}
 }

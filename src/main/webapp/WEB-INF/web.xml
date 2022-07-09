@@ -19,7 +19,10 @@
 		<servlet-name>Reservation</servlet-name>
 		<url-pattern>/reservation</url-pattern>
 	</servlet-mapping>
+<<<<<<< HEAD
+=======
   
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 	<servlet>
 		<servlet-name>User</servlet-name>
 		<servlet-class>controller.UserController</servlet-class>
@@ -29,5 +32,36 @@
 		<servlet-name>User</servlet-name>
 		<url-pattern>/user</url-pattern>
 	</servlet-mapping>
+<<<<<<< HEAD
   
+    <servlet>
+		<servlet-name>Movie</servlet-name>
+		<servlet-class>controller.MovieController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Movie</servlet-name>
+		<url-pattern>/movie</url-pattern>
+	</servlet-mapping>
+	
+	  <servlet>
+		  <servlet-name>MovieCrawling</servlet-name>
+		  <servlet-class>controller.MovieCrawlingController</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+		  <servlet-name>MovieCrawling</servlet-name>
+		  <url-pattern>/moviecrawling</url-pattern>
+	  </servlet-mapping>
+  <servlet>
+	  <servlet-name>MovieCrawling</servlet-name>
+	  <servlet-class>controller.MovieCrawlingController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	  <servlet-name>MovieCrawling</servlet-name>
+	  <url-pattern>/moviecrawling</url-pattern>
+  </servlet-mapping>
+=======
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
+  
+
 </web-app>

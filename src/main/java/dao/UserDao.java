@@ -1,4 +1,8 @@
 package dao;
+<<<<<<< HEAD
+/**
+ * 사용자 DAO
+=======
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,10 +16,14 @@ import dto.UserDto;
 /**
  * 사용자 DAO
  * 
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
  * @author BTC-N12
  *
  */
 public class UserDao {
+<<<<<<< HEAD
+
+=======
 	/**
 	 * 어디서나 호출 할수 있게 static으로 인스턴스 생성
 	 */
@@ -138,4 +146,5 @@ public class UserDao {
 		return usr;
 	}
 	
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 }

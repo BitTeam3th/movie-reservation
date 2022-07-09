@@ -1,4 +1,8 @@
 package dao;
+<<<<<<< HEAD
+/**
+ * 예약 관련 DAO
+=======
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +18,7 @@ import dto.ReservationDto;
 /**
  * 예약 관련 DAO
  * 
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
  * @author BTC-N12
  *
  */
