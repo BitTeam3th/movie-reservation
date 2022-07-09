@@ -70,7 +70,17 @@ List<MovieDto> lists = dao.getMovieList();
                      src="<%=lists.get(i).getImg_src()%>">
                      <h2><%=lists.get(i).getTitle()%></h2>
                      <p><%=lists.get(i).getContent()%></p>
-                     <input type="hidden" value = <%=lists.get(i).getDirector() %>>
+
+                     <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getRating() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getTicketingRate() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getAudienceNumber() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getGenre() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getOpenDate() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getRunningTime()%>">
+                     <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
+                     <input type="hidden" value = "<%=lists.get(i).getCast()%>">
+
                   </a>
                </div>
             </div>
@@ -98,7 +108,16 @@ List<MovieDto> lists = dao.getMovieList();
             <div class="layerDesc" style="">
                <br /> <span id="director"></span>
                <br /> <span id="spanDesc"></span>
+               <br /> <span id="rating"></span>
+               <br /> <span id="ticketingRate"></span>
+               <br /> <span id="audienceNumber"></span>
+               <br /> <span id="genre"></span>
+               <br /> <span id="openDate"></span>
+               <br /> <span id="runningTime"></span>
+               <br /> <span id="director"></span>
+               <br /> <span id="cast"></span>
             </div>
+
             <div>
                <a href="./reserve.jsp"><img class="layerButton"
                   src="img/bookButton.jpg"></a>
@@ -169,7 +188,7 @@ List<MovieDto> lists = dao.getMovieList();
    /// 화면의 중앙에 레이어띄움
    function showLayer(input) {
        wrapWindowByMask();
-       console.log('왓냐');
+
         $("#SearchLayer").css("position", "absolute");
        $("#SearchLayer").css("top", Math.max(0, (($(window).height() - $("#SearchLayer").outerHeight()) / 2) + $(window).scrollTop() - 100) + "px");
        $("#SearchLayer").css("left", Math.max(0, (($(window).width() - $("#SearchLayer").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
@@ -181,9 +200,16 @@ List<MovieDto> lists = dao.getMovieList();
        document.getElementById('id_layerImg').src= input.children[0].children[0].children[0].src;
        document.getElementById('spanDesc').innerText= input.children[0].children[0].children[2].innerText;
        document.getElementById('director').innerText= input.children[0].children[0].children[3].value;
- 
- 
-       console.log('왓냐2');
+
+       document.getElementById('rating').innerText= input.children[0].children[0].children[4].value;
+       document.getElementById('ticketingRate').innerText= input.children[0].children[0].children[5].value;
+       document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value;
+       document.getElementById('genre').innerText= input.children[0].children[0].children[7].value;
+       document.getElementById('openDate').innerText= input.children[0].children[0].children[8].value;
+       document.getElementById('runningTime').innerText= input.children[0].children[0].children[9].value;
+       document.getElementById('director').innerText= input.children[0].children[0].children[10].value;
+       document.getElementById('cast').innerText= input.children[0].children[0].children[11].value
+
        setTimeout(function() {
            $('html').click((e) => {
                if (e.target.id !== 'layerWhite' && $(e.target).parents('#layerWhite').length === 0) {
