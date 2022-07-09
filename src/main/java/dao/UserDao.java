@@ -53,8 +53,8 @@ public class UserDao {
 			conn = DBConnection.getConnection();
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getPassword());
-			psmt.setString(2, dto.getEmail());
+			psmt.setString(1, dto.getEmail());
+			psmt.setString(2, dto.getPassword());
 			psmt.setString(3, dto.getUsername());
 
 			count = psmt.executeUpdate();

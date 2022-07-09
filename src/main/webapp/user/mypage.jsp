@@ -1,3 +1,4 @@
+<%@page import="dto.UserDto"%>
 <%@page import="org.w3c.dom.Document"%>
 <%@page import="dto.ReservationDto"%>
 <%@page import="java.util.List"%>
@@ -7,6 +8,10 @@
 <%
 ReservationDao dao = ReservationDao.getInstance();
 List<ReservationDto> list = dao.getReservationList("a@a.com");
+UserDto loginUser = (UserDto)session.getAttribute("login");
+if (loginUser == null) {
+	loginUser = new UserDto();
+}
 %>
 
 <!DOCTYPE html>
@@ -19,6 +24,7 @@ List<ReservationDto> list = dao.getReservationList("a@a.com");
 	href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/style.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/headerFooter.css">
+<script src="<%=request.getContextPath()%>/js/jQuery.js"></script>
 
 </head>
 <body>
@@ -67,11 +73,27 @@ List<ReservationDto> list = dao.getReservationList("a@a.com");
 		  = document.getElementsByName('movie');
 		reservationMovies.forEach((node) => {
 		    if(node.checked)  {
-		     location.href='./reservation?param=cancel&reservationid='+node.value;
+		     location.href='<%=request.getContextPath()%>/reservation?param=cancel&reservationid='+node.value;
 		    }
 		  })
 	}
-	  
+	   <%if (loginUser.getEmail() == null) {
+		   %>
+			   $('#mainLogin').show();
+			   $('#mainRegi').show();
+				$('#mainMypage').hide();
+				$('#mainLogout').hide();
+		   <%
+		  	 } else {
+		   %>
+			   $('#mainLogout').show();
+			   $('#mainMypage').show();
+			   $('#mainLogin').hide();
+			   $('#mainRegi').hide();
+		   <%
+			}
+		   %>
+
 	</script>
 </body>
 </html>

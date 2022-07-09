@@ -44,17 +44,14 @@
 	                    <div class="inputSet login">
 	                        <div>
 	                        	<input type="hidden" id="tempid" name="tempid">
-	                        	<input name="email" type="text" placeholder="아이디 또는 이메일 아이디" id="email" title="아이디 또는 이메일 입력">
+	                        	<input name="email" type="text" placeholder="이메일 아이디" id="email" title="아이디 또는 이메일 입력">
 	                            <div class="alertTxt"></div>
 	                        </div>
 	                        <div class="inputSet login">
 	                            <div class="passwordWrap">
 	                            	<input type="hidden" id="tempPwd" name="tempPwd">
-	                            	<input id="pwd" type="password" placeholder="8~15자리 영문+숫자+특수문자 조합" name="pwd"
+	                            	<input id="pwd" type="password" placeholder="비밀번호" name="pwd"
 	                                    autocomplete="new-password" title="비밀번호 입력 (8~15자리 영문+숫자+특수문자 조합)">
-	                           		<button type="button">
-	                           			<span class="blind">비밀번호 숨기기</span>
-	                      			</button>
 	                      		</div>
 	                            <div class="alertTxt"></div>
 	                        </div>
@@ -70,7 +67,7 @@
                	</form>
                 <div class="autoLogin">
                     <div class="checkboxSet">
-                   		<input id="chk_save_id" type="checkbox" name="chk_save_id">
+                   		<input id="idSaveCheck" type="checkbox" name="idSaveCheck">
                    			<label for="checkbox1">아이디 저장</label>
                		</div>
       					<input id="checkbox11" type="hidden" name="checkbox" value="N">
@@ -81,34 +78,71 @@
             </div>
        	</div>
 	</main>
-<%-- 아이디 기억하기 --%>
 <script type="text/javascript">
-	 let user_id = $.cookie("user_id");
-	 if (user_id != null) {
-		 $('#email').val(user_id);
-		 $('#chk_save_id').prop("checked", true);			 
-	 }
-	 $('#chk_save_id').click(function() {
-		if ($('#chk_save_id').is(':checked')) {
-			if ($('#email').val().trim() =='') {
-				alert('아이디를 입력해주세요');
-				$('#chk_save_id').prop("checked", false);	
-			} else {
-				//쿠키 저장
-				$.cookie("user_id", $('#email').val().trim(), {expires:7, path:'./'});
-			}
-		} else {
-			$.removeCookie("user_id");
-		}
-	 });
+	<%-- 아이디 기억하기 --%>
+	$(document).ready(function() {
+	    var userInputId = getCookie("userInputId");
+	    var setCookieYN = getCookie("setCookieYN");
+	    
+	    if (setCookieYN == 'Y') {
+	        $("#idSaveCheck").prop("checked", true);
+	    } else {
+	        $("#idSaveCheck").prop("checked", false);
+	    }
+	    
+	    $("#email").val(userInputId); 
+	    <%-- 로그인 버튼 클릭 --%>
+	    $('#btnLogin, #idSaveCheck').click(function() {
+	        if ($("#idSaveCheck").is(":checked")){ 
+	            var userInputId = $("#email").val();
+	            setCookie("userInputId", userInputId, 60); 
+	            setCookie("setCookieYN", "Y", 60);
+	        } else {
+	            deleteCookie("userInputId");
+	            deleteCookie("setCookieYN");
+	        }
+	    });
+	});
+
+	<%-- 쿠키값 Set --%>
+	function setCookie(cookieName, value, exdays) {
+	    var exdate = new Date();
+	    exdate.setDate(exdate.getDate() + exdays);
+	    var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + 
+	    exdate.toGMTString());
+	    document.cookie = cookieName + "=" + cookieValue;
+	}
+	
+	<%-- 쿠키값 Delete --%>
+	function deleteCookie(cookieName) {
+	    var expireDate = new Date();
+	    expireDate.setDate(expireDate.getDate() - 1);
+	    document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+	}
+
+	<%-- 쿠키값 가져오기 --%>
+	function getCookie(cookie_name) {
+	    var x, y;
+	    var val = document.cookie.split(';');
+	    
+	    for (var i = 0; i < val.length; i++) {
+	        x = val[i].substr(0, val[i].indexOf('='));
+	        y = val[i].substr(val[i].indexOf('=') + 1);
+	        x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+	        
+	        if (x == cookie_name) {
+	          return unescape(y); // unescape로 디코딩 후 값 리턴
+	        }
+	    }
+	}
 	 <%-- 로그인 --%>
-	 $('#btnLogin').click(function() {
+	$('#btnLogin').click(function() {
 		$('#frm').submit();
-	 });
+	});
 	 <%-- 회원가입 --%>
-	 $('#btnRgst').click(function() {
-		 location.href='<%=request.getContextPath()%>/user?param=regi';
-	 });
+	$('#btnRgst').click(function() {
+		location.href='<%=request.getContextPath()%>/user?param=regi';
+	});
 </script>
 </body>
 </html>
