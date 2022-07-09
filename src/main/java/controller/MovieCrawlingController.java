@@ -34,6 +34,7 @@ public class MovieCrawlingController extends HttpServlet {
 		
 		String param = req.getParameter("param");
 		
+//		영화 정보 넣어주기
 		if(param.equals("getmovie")) {
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
@@ -59,26 +60,21 @@ public class MovieCrawlingController extends HttpServlet {
 			
 		}
 		
+//		시간정보 넣어주기
 		if(param.equals("gettime")) {
 			
 			MovieCrawlingDao dao = MovieCrawlingDao.getInstance();
 			
 			String title = req.getParameter("title");
-			System.out.println("영화시간가져오기");
-			System.out.println(title);
-			String query = "https://www.google.com/search?q=";
-			String month = "07";
-			String day = "10";
-			query = query + title + " 강남" + month + "월 " + day + "일";
-			Document doc = Jsoup.connect(query).get();
+			String month = req.getParameter("month");
+			String day = req.getParameter("day");
 			
+			String query = "https://www.google.com/search?q=";
+			query = query + title + " 강남 " + month + "월 " + day + "일";
+			Document doc = Jsoup.connect(query).get();
 			Elements theaters = doc.select("div.lr_c_fcb div.lr_c_tmt a.vk_bk");
 			
 			Elements times = doc.select("div.lr_c_fcb div.lr_c_fcc");
-			
-			
-			
-			System.out.println(dao.findMovieId(title));
 			
 			for (int i = 0; i < theaters.size(); i++) {
 				if (theaters.get(i).text().substring(0, 5).equals("롯데시네마")) {
@@ -90,23 +86,19 @@ public class MovieCrawlingController extends HttpServlet {
 						String hour = two(ifAfternoon(check, beforetime[0]));
 						String minute = two(beforetime[1]);
 						aftermovietimes.add("2022" + two(month) + two(day) + hour + minute);
-//						System.out.println(dao.findMovieId(theaters.get(i).text()) + "2022" + two(month) + two(day) + hour + minute);
-//						System.out.println(theaters.get(i).text() + "2022" + two(month) + two(day) + hour + minute);
 					}
-					System.out.println(aftermovietimes);
 					dao.savetimes(dao.findMovieId(title), theaters.get(i).text(), aftermovietimes);
 				}
 			}
 		}
-		
-		
 	}
 	
-	
+//	시간에 0넣어주기
 	public static String two(String msg){
 		return msg.trim().length() < 2?"0" + msg.trim():msg.trim();
 	}
-	
+
+//	오전 오후 시간 조정
 	public static String ifAfternoon(String msg, String time){
 		if (msg.equals("오후")) {
 			return Integer.toString(Integer.parseInt(time) + 12);
