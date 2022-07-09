@@ -5178,12 +5178,12 @@ input[type=checkbox]::-ms-check {
 
 input[type=checkbox]:checked {
     border: 0;
-    background: #ef2a23 url(https://static.lotteon.com/p/common/foCommon/assets/img/checkbox_on.svg) no-repeat
+    background: #2364ef url(https://static.lotteon.com/p/common/foCommon/assets/img/checkbox_on.svg) no-repeat
 }
 
 input[type=checkbox]:checked::-ms-check {
     border: 0;
-    background: #ef2a23 url(https://static.lotteon.com/p/common/foCommon/assets/img/checkbox_on.svg) no-repeat;
+    background: #2364ef url(https://static.lotteon.com/p/common/foCommon/assets/img/checkbox_on.svg) no-repeat;
     color: transparent
 }
 
