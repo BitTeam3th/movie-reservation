@@ -67,9 +67,13 @@ List<ReservationDto> list = dao.getReservationList("a@a.com");
 		  = document.getElementsByName('movie');
 		reservationMovies.forEach((node) => {
 		    if(node.checked)  {
-		     location.href='./reservation?param=cancel&reservationid='+node.value;
+		     location.href=getContextPath()+'/reservation?param=cancel&reservationid='+node.value;
 		    }
 		  })
+	}
+	function getContextPath() {
+	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
 	}
 	  
 	</script>
