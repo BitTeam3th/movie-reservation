@@ -1,8 +1,4 @@
 package dao;
-<<<<<<< HEAD
-/**
- * 사용자 DAO
-=======
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,14 +12,10 @@ import dto.UserDto;
 /**
  * 사용자 DAO
  * 
->>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
  * @author BTC-N12
  *
  */
 public class UserDao {
-<<<<<<< HEAD
-
-=======
 	/**
 	 * 어디서나 호출 할수 있게 static으로 인스턴스 생성
 	 */
@@ -46,8 +38,8 @@ public class UserDao {
 	}
 
 	/**
-	 * 회원 추가
-	 * 성공적으로 추가시 true값을 돌려준다
+	 * 회원 추가 성공적으로 추가시 true값을 돌려준다
+	 * 
 	 * @param dto
 	 * @return count
 	 */
@@ -56,10 +48,10 @@ public class UserDao {
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		int count = 0;
-		
+
 		try {
 			conn = DBConnection.getConnection();
-			
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getPassword());
 			psmt.setString(2, dto.getEmail());
@@ -74,9 +66,10 @@ public class UserDao {
 		}
 		return count > 0 ? true : false;
 	}
-	
+
 	/**
 	 * 아이디 중복 확인
+	 * 
 	 * @param id
 	 * @return findId
 	 */
@@ -89,7 +82,7 @@ public class UserDao {
 
 		try {
 			conn = DBConnection.getConnection();
-			
+
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
 
@@ -105,22 +98,23 @@ public class UserDao {
 		}
 		return findId;
 	}
-	
+
 	/**
 	 * 로그인 아이디와 비밀번호를 받아 로그인 객체(usr)를 돌려준다.
+	 * 
 	 * @param dto
 	 * @return usr
 	 */
 	public UserDto longin(UserDto dto) {
 		String sql = " SELECT EMAIL, PASSWORD, USERNAME FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
 
-		Connection conn = null; 
+		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		UserDto usr = null; 
+		UserDto usr = null;
 
 		try {
-			conn = DBConnection.getConnection(); 
+			conn = DBConnection.getConnection();
 			System.out.println("1/3 login success");
 
 			psmt = conn.prepareStatement(sql);
@@ -133,7 +127,7 @@ public class UserDao {
 			if (rs.next()) {
 				String email = rs.getString(1);
 				String username = rs.getString(3);
-				
+
 				usr = new UserDto(email, null, username);
 			}
 			System.out.println("3/3 login success");
@@ -145,6 +139,5 @@ public class UserDao {
 		}
 		return usr;
 	}
-	
->>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
+
 }

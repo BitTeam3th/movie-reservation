@@ -49,7 +49,7 @@ public class MovieCrawlingDao {
 			psmt.setInt(8, dto.getRunningTime());
 			psmt.setString(9, dto.getDirector());
 			psmt.setString(10, dto.getCast());
-			psmt.setString(11, dto.getPoster());
+			psmt.setString(11, dto.getImg_src());
 			System.out.println("2/3 movieSave success");
 			
 			count = psmt.executeUpdate();
