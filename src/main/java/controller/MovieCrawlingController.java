@@ -50,7 +50,7 @@ public class MovieCrawlingController extends HttpServlet {
 			
 			MovieCrawlingDao dao = MovieCrawlingDao.getInstance();
 			
-			MovieDto dto = new MovieDto(0, title, content, runningTime, runningTime, audienceNumber, genre, openDate, runningTime, derector, cast, poster);
+			MovieDto dto = new MovieDto(0, title, content, rating, ticketingRate, audienceNumber, genre, openDate, runningTime, derector, cast, poster);
 			
 			String msg = "SAVEFAIL";
 			boolean isS = dao.saveMovie(dto);
