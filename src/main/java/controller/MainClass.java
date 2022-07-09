@@ -11,48 +11,39 @@ public class MainClass {
 		String title = "토르-러브 앤 썬더";
 		String month = "07";
 		String day = "10";
-		query = query + title + " " + month + "월 " + day + "일 상영시간표";
+		query = query + title + " 강남" + month + "월 " + day + "일";
 		Document doc = Jsoup.connect(query).get();
-		/*
-		  <div class="box-contents">
-			<a href="/movies/detail-view/?midx=85999">
-				<strong class="title">토르-러브 앤 썬더</strong>
-			</a>	
-			
-			<div class="score">
-            	<strong class="percent">예매율
-            		<span>66.2%</span>
-            	</strong>
-		 */
 		
 		Elements theaters = doc.select("div.lr_c_fcb div.lr_c_tmt a.vk_bk");
 		
 		Elements times = doc.select("div.lr_c_fcb div.lr_c_fcc");
 		
-		System.out.println(theaters.size());
-		
 		for (int i = 0; i < theaters.size(); i++) {
 			if (theaters.get(i).text().substring(0, 5).equals("롯데시네마")) {
-				System.out.println(theaters.get(i).text());
-				System.out.println(times.get(i).text());
 				String[] movietimes = times.get(i).text().split(" ");
 				for (int j = 0; j < movietimes.length; j++) {
-					System.out.println(movietimes[j]);
+					String check = movietimes[j].substring(0, 2);
+					String[] beforetime = movietimes[j].substring(2).split(":");
+					String hour = two(ifAfternoon(check, beforetime[0]));
+					String minute = two(beforetime[1]);
+					System.out.println(theaters.get(i).text() + "2022" + two(month) + two(day) + hour + minute);
 				}
 				
 			}
 		}
-		
-		/*
-		 * for (int i = 0; i < 19; i++) { Element title = titles.get(i); Element percent
-		 * = percents.get(i);
-		 * 
-		 * System.out.println(title.text()); System.out.println(percent.text()); }
-		 */
+	}
+	
+	public static String two(String msg){
+		return msg.trim().length() < 2?"0" + msg.trim():msg.trim();
+	}
+	
+	public static String ifAfternoon(String msg, String time){
+		if (msg.equals("오후")) {
+			return Integer.toString(Integer.parseInt(time) + 12);
+		}
+		return time;
 	}
 }
-
-
 
 
 
