@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>영화예약 사이트</title>
-<link rel="icon" href="img/favicon-228.png" type="image/x-icon">
+<link rel="icon" href="img/logo.png" type="image/x-icon">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="css/style.css">
@@ -83,10 +83,6 @@
 				</nav>
 			</section>
 		</div>
-
-
-
-
 	</div>
 
 
