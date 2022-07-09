@@ -29,7 +29,10 @@ public class UserDto implements Serializable {
 	}
 
 	public UserDto(String email, String password, String username) {
+<<<<<<< HEAD
 		super();
+=======
+>>>>>>> 5dbf8c770a6fb0d7c68de8dd4b4efb07e333e01d
 		this.email = email;
 		this.password = password;
 		this.username = username;
