@@ -17,7 +17,7 @@ List<MovieDto> lists = dao.getMovieList();
    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>비트 시네마</title>
-<link rel="icon" href="img/favicon-228.png" type="image/x-icon">
+<link rel="icon" href="img/logo.png" type="image/x-icon">
 <link rel="stylesheet"
    href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="css/style.css">
@@ -70,6 +70,7 @@ List<MovieDto> lists = dao.getMovieList();
                      src="<%=lists.get(i).getImg_src()%>">
                      <h2><%=lists.get(i).getTitle()%></h2>
                      <p><%=lists.get(i).getContent()%></p>
+
                      <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
                      <input type="hidden" value = "<%=lists.get(i).getRating() %>">
                      <input type="hidden" value = "<%=lists.get(i).getTicketingRate() %>">
@@ -79,6 +80,7 @@ List<MovieDto> lists = dao.getMovieList();
                      <input type="hidden" value = "<%=lists.get(i).getRunningTime()%>">
                      <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
                      <input type="hidden" value = "<%=lists.get(i).getCast()%>">
+
                   </a>
                </div>
             </div>
@@ -115,8 +117,9 @@ List<MovieDto> lists = dao.getMovieList();
                <br /> <span id="director"></span>
                <br /> <span id="cast"></span>
             </div>
+
             <div>
-               <a href="./reserve.html"><img class="layerButton"
+               <a href="./reserve.jsp"><img class="layerButton"
                   src="img/bookButton.jpg"></a>
             </div>
          </div>
@@ -185,6 +188,7 @@ List<MovieDto> lists = dao.getMovieList();
    /// 화면의 중앙에 레이어띄움
    function showLayer(input) {
        wrapWindowByMask();
+
         $("#SearchLayer").css("position", "absolute");
        $("#SearchLayer").css("top", Math.max(0, (($(window).height() - $("#SearchLayer").outerHeight()) / 2) + $(window).scrollTop() - 100) + "px");
        $("#SearchLayer").css("left", Math.max(0, (($(window).width() - $("#SearchLayer").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
@@ -196,6 +200,7 @@ List<MovieDto> lists = dao.getMovieList();
        document.getElementById('id_layerImg').src= input.children[0].children[0].children[0].src;
        document.getElementById('spanDesc').innerText= input.children[0].children[0].children[2].innerText;
        document.getElementById('director').innerText= input.children[0].children[0].children[3].value;
+
        document.getElementById('rating').innerText= input.children[0].children[0].children[4].value;
        document.getElementById('ticketingRate').innerText= input.children[0].children[0].children[5].value;
        document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value;
@@ -204,7 +209,7 @@ List<MovieDto> lists = dao.getMovieList();
        document.getElementById('runningTime').innerText= input.children[0].children[0].children[9].value;
        document.getElementById('director').innerText= input.children[0].children[0].children[10].value;
        document.getElementById('cast').innerText= input.children[0].children[0].children[11].value
- 		// console.log(input.children[0].children[0])
+
        setTimeout(function() {
            $('html').click((e) => {
                if (e.target.id !== 'layerWhite' && $(e.target).parents('#layerWhite').length === 0) {
