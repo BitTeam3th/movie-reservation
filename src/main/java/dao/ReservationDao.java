@@ -54,7 +54,7 @@ public class ReservationDao {
 	}
 
 	public List<ReservationDto> getReservationList(String userEmail) {
-		String sql = " select user.id, user.EMAIL, user.username, movie.title, movie.img_src, movie_time.time, reservation.id "
+		String sql = " select user.id, user.EMAIL, user.username, movie.title, movie.img_src, movie_time.time, reservation.id, reservation.personnel "
 				+ " from movie, movie_time, user, reservation "
 				+ " where reservation.user_id = user.id and reservation.movie_id = movie.id "
 				+ " and reservation.MOVIE_TIME_ID = movie_time.id and user.email = ? ";
@@ -72,7 +72,7 @@ public class ReservationDao {
 			while (rs.next()) {
 				int i = 1;
 				ReservationDto dto = new ReservationDto(rs.getInt(i++), rs.getString(i++), rs.getString(i++),
-						rs.getString(i++), rs.getString(i++), rs.getString(i++), rs.getInt(i++));
+						rs.getString(i++), rs.getString(i++), rs.getString(i++), rs.getInt(i++), rs.getInt(i++));
 				list.add(dto);
 			}
 
