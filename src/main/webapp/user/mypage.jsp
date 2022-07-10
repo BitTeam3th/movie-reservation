@@ -79,8 +79,8 @@ if (loginUser == null) {
 	}
 	   <%if (loginUser.getEmail() == null) {
 		   %>
-			   $('#mainLogin').show();
-			   $('#mainRegi').show();
+		   		$('#mainLogin').show();
+		   		$('#mainRegi').show();
 				$('#mainMypage').hide();
 				$('#mainLogout').hide();
 		   <%
@@ -93,7 +93,15 @@ if (loginUser == null) {
 		   <%
 			}
 		   %>
-
+		     location.href=getContextPath()+'/reservation?param=cancel&reservationid='+node.value;
+		    }
+		  })
+	}
+	function getContextPath() {
+	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+	}
+	  
 	</script>
 </body>
 </html>
