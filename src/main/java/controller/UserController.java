@@ -50,7 +50,7 @@ public class UserController extends HttpServlet {
 		} else if (param.equals("logout")) {
 			HttpSession session = req.getSession();
 			session.invalidate();
-			resp.sendRedirect("user/login.jsp");
+			resp.sendRedirect("index.jsp");
 		} else if (param.equals("loinAf")) {
 			req.setCharacterEncoding("utf-8");
 			String email = req.getParameter("email");
