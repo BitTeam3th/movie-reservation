@@ -20,11 +20,10 @@ body {
 } 
 
 section {
-	width: 340px;
+	width: 100%;
 	padding: 30px;
 	background-color: #fff;
 	margin: 50px auto;
-	box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	position:static;
 }
@@ -195,3 +194,81 @@ body.member4 section a.btnView {
 	background: linear-gradient(45deg, #8e74ff, #a011ff);   
 	box-shadow: 5px 10px 20px rgba(160, 17, 255, 0.4);
 }
+
+
+
+
+/*----------------------------------------------*/
+
+/* hardware accelatator class */	
+	.trans3d
+	{
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform-style: preserve-3d;
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform-style:preserve-3d;
+		-ms-transform: translate3d(0, 0, 0);
+		transform-style:preserve-3d;
+		transform: translate3d(0, 0, 0);
+
+		/*-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility:hidden;
+		backface-visibility:hidden;*/
+	}
+	
+	#contentContainer
+	{
+		position:absolute;
+		margin-left:-500px;
+		margin-top:-500px;
+		left:50%;
+		top:33%;
+		width:1000px;
+		height:1000px;
+	}
+	
+	#carouselContainer
+	{	
+		background-color: rgba(0,0,0,0);
+		position:absolute;
+		margin-left:-500px;
+		margin-top:-500px;
+		left:50%;
+		top:33%;
+		width:1000px;
+		height:1000px;
+	}
+	
+	.carouselItem
+	{
+		background-color: rgba(0,0,0,0);
+		width:320px;
+		height:700px;
+		position:absolute;
+		left:50%;
+		top:33%;
+		margin-left:-160px;
+		margin-top:-30px;
+		visibility:hidden;
+	}
+	
+	.carouselItemInner
+	{
+		background-color: rgba(0,0,0,0);
+		width:320px;
+		height:700px;
+		position:absolute;
+		background-color:rgba(255, 255, 255, .75);
+		border:10px solid rgba(255, 255, 255, .5);
+		color:aqua;
+		font-size:72px;
+		left:50%;
+		top:33%;
+		margin-left:-160px;
+		margin-top:-30px;
+		text-align:center;
+		padding-top:50px;
+		
+	}
