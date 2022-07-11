@@ -77,7 +77,7 @@ color: #212121 !important;border-color:#333 !important;}
 <main id="content" role="main" class="contentArea on">
 	<form action="<%=request.getContextPath() %>/user" method="post" id="frm">
 		<input type="hidden" name="param" value="regiAf">
-		<div class="signupLayout">
+		<div class="signupLayout" style="margin-top: 10%;">
 			<h2 class="titleSet titBig">
 				<span>
 					<img src="<%=request.getContextPath() %>/img/logo.png" style="width:80px; height:80px;">

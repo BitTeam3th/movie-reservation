@@ -35,7 +35,7 @@
 <body>
 <%-- 로그인 화면 --%>
 	<main id="content" role="main" class="contentArea on">
-        <div class="loginContent">
+        <div class="loginContent" style="margin-top: 10%;">
             <div class="loginWrap lotteOn">
                 <h2 class="titLogin">로그인</h2>
            		<form action="<%=request.getContextPath() %>/user" method="post" id="frm">
