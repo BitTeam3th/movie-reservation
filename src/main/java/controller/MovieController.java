@@ -56,7 +56,7 @@ public class MovieController extends HttpServlet{
 			dto = dao.getMovieTimeListById(id);
 			req.setAttribute("movieTimeList",dto);
 			
-			forward("index3.jsp",req,resp);
+			forward("reserve.jsp",req,resp);
 		}
 		
 	}
