@@ -16,6 +16,7 @@ li {
 
 a {
 	text-decoration: none;
+	font-family : monospace;
 }
 
 /* 전체 풀 스크린 레이아웃 */
@@ -151,7 +152,7 @@ a {
 
 .wrap .swiper-wrapper .swiper-slide .inner .con h2 {
 	font-weight: normal;
-	font-size: 40px;
+	font-size: 30px;
 	font-family: "roboto";
 	color: #111;
 	margin-top: 15px;
@@ -255,8 +256,6 @@ a {
 	color : rgb(66, 66, 66);
 	font-size : large;
 	font-family : monospace;
-	font-weight : bold;
-	line-height : 2.0;
 }
 
 /* 페이지네이션 */

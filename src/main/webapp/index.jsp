@@ -29,7 +29,7 @@ if (loginUser == null) {
 <link rel="stylesheet" href="css/headerFooter.css">
 
 <script src="./js/jQuery.js"></script>
-<!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
+<!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> --> 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
@@ -103,17 +103,19 @@ if (loginUser == null) {
                   style="">
             </div>
             <div class="layerDesc" style="">
-           	   <br /> <span id="title_layer">영화제목넣자</span>
+           	   <br /> <span id="title_layer" style="font-size: XX-large;">영화제목넣자</span>
+           	   <br />
                <br /> <span id="director"></span>
-               <br /> <span id="spanDesc"></span>
-               <br /> <span id="rating"></span>
-               <br /> <span id="ticketingRate"></span>
-               <br /> <span id="audienceNumber"></span>
-               <br /> <span id="genre"></span>
-               <br /> <span id="openDate"></span>
-               <br /> <span id="runningTime"></span>
-               <br /> <span id="director"></span>
-               <br /> <span id="cast"></span>
+                <span id="rating"></span>
+                <span style="display:none" id="ticketingRate"></span>
+                <span id="audienceNumber"></span>
+                <span id="genre"></span>
+                <span id="openDate"></span>
+                <span id="runningTime"></span>
+                <span id="director"></span>
+                <br/>
+                <span id="cast"></span>
+               <br /><br /> <span id="spanDesc"></span>
             </div>
 
             <div>
@@ -200,16 +202,19 @@ if (loginUser == null) {
     	   document.getElementById('spanDesc').innerText = in_tt.substr(0, 170)+"...";
        }
        
-       document.getElementById('director').innerText= input.children[0].children[0].children[3].value;
+       document.getElementById('director').innerText= "감독 : "+input.children[0].children[0].children[3].value + " | ";
 
-       document.getElementById('rating').innerText= input.children[0].children[0].children[4].value;
-       document.getElementById('ticketingRate').innerText= input.children[0].children[0].children[5].value;
-       document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value;
-       document.getElementById('genre').innerText= input.children[0].children[0].children[7].value;
-       document.getElementById('openDate').innerText= input.children[0].children[0].children[8].value;
-       document.getElementById('runningTime').innerText= input.children[0].children[0].children[9].value;
-       document.getElementById('director').innerText= input.children[0].children[0].children[10].value;
-       document.getElementById('cast').innerText= input.children[0].children[0].children[11].value;
+       document.getElementById('rating').innerText= "평점 : " + input.children[0].children[0].children[4].value + " | ";
+
+       
+       document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value + " | ";
+       document.getElementById('audienceNumber').innerText= "관객수 : "+document.getElementById('audienceNumber').innerText + " | ";
+       
+       document.getElementById('genre').innerText= input.children[0].children[0].children[7].value + " | "; 
+       document.getElementById('openDate').innerText= input.children[0].children[0].children[8].value + " | ";
+       document.getElementById('runningTime').innerText= "상영시간 : " + input.children[0].children[0].children[9].value + " | ";
+       document.getElementById('director').innerText= input.children[0].children[0].children[10].value + " | ";
+       document.getElementById('cast').innerText= input.children[0].children[0].children[11].value + " | ";
        document.getElementById('goReserv').href = "movie?param=movieTimeListById&id="+input.children[0].children[0].children[12].value;
        setTimeout(function() {
            $('html').click((e) => {
