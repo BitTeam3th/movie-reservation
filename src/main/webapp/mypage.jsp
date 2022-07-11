@@ -38,7 +38,6 @@ Calendar cal = Calendar.getInstance();
 <script src="./js/jQuery.js"></script>
 <!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <style type="text/css">
 .ticket_list .ticket_info .ticket::after{
 	width: 0px;
@@ -169,6 +168,7 @@ Calendar cal = Calendar.getInstance();
      	  	 } else {
      	   %>
 	<script>
+			$('#userName').children().text('<%=loginUser.getUsername()%> 님');
 			$('#mainLogout').show();
 			$('#mainMypage').show();
 			$('#mainLogin').hide();
