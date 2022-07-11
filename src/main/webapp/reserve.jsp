@@ -209,18 +209,19 @@ if (loginUser.getEmail() == null) {
     	let userId = <%=loginUser.getId()%>;
         <%
         int movieId = -1;
-        if(movieTimeLists != null){
+        if(movieTimeLists.get(0)!= null){
         	movieId= (int)movieTimeLists.get(0).get("id");
         }
         %>
         let movieId = <%=movieId%>;
-        if(movieId == -1){}
-     	   alert("상영관이 없습니다.")ㅣ
+        if(movieId == -1){
+     	   alert("상영관이 없습니다.");
      	   return;
      	   }
-       let movieTimeId = $('#time'+index+' option:selected').val();
-       let personnel = $('#personnel'+index+' option:selected').val();
-       location.href=getContextPath()+'/reservation?param=insert&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
+        
+      let movieTimeId = $('#time'+index+' option:selected').val();
+      let personnel = $('#personnel'+index+' option:selected').val();
+      location.href=getContextPath()+'/reservation?param=insert&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
    }
     </script>
 </body>
