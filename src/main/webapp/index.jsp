@@ -1,5 +1,5 @@
 <%@page import="dto.MovieDto"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.List"%> 
 <%@page import="dao.MovieDao"%>
 <%@page import="dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -106,6 +106,7 @@ List<MovieDto> lists = dao.getMovieList();
                   style="">
             </div>
             <div class="layerDesc" style="">
+           	   <br /> <span id="title_layer">영화제목넣자</span>
                <br /> <span id="director"></span>
                <br /> <span id="spanDesc"></span>
                <br /> <span id="rating"></span>
@@ -189,14 +190,19 @@ List<MovieDto> lists = dao.getMovieList();
    function showLayer(input) {
        wrapWindowByMask();
 
-        $("#SearchLayer").css("position", "absolute");
+       $("#SearchLayer").css("position", "absolute");
        $("#SearchLayer").css("top", Math.max(0, (($(window).height() - $("#SearchLayer").outerHeight()) / 2) + $(window).scrollTop() - 100) + "px");
        $("#SearchLayer").css("left", Math.max(0, (($(window).width() - $("#SearchLayer").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
        $('#SearchLayer').show(); 
-       
-       
+
+       document.getElementById("title_layer").innerText = input.children[0].children[0].children[1].innerText;
        document.getElementById('id_layerImg').src= input.children[0].children[0].children[0].src;
        document.getElementById('spanDesc').innerText= input.children[0].children[0].children[2].innerText;
+       var in_tt = document.getElementById('spanDesc').innerText;
+       if(in_tt.length >= 170) {
+    	   document.getElementById('spanDesc').innerText = in_tt.substr(0, 170)+"...";
+       }
+       
        document.getElementById('director').innerText= input.children[0].children[0].children[3].value;
 
        document.getElementById('rating').innerText= input.children[0].children[0].children[4].value;
