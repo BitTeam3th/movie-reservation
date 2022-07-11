@@ -215,7 +215,7 @@ if (loginUser == null) {
        document.getElementById('runningTime').innerText= "상영시간 : " + input.children[0].children[0].children[9].value + " | ";
        document.getElementById('director').innerText= input.children[0].children[0].children[10].value + " | ";
        document.getElementById('cast').innerText= input.children[0].children[0].children[11].value + " | ";
-       document.getElementById('goReserv').href = "movie?param=movieTimeListById&id="+input.children[0].children[0].children[12].value + " | ";
+       document.getElementById('goReserv').href = "movie?param=movieTimeListById&id="+input.children[0].children[0].children[12].value;
        setTimeout(function() {
            $('html').click((e) => {
                if (e.target.id !== 'layerWhite' && $(e.target).parents('#layerWhite').length === 0) {
