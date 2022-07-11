@@ -106,7 +106,7 @@ public class UserDao {
 	 * @return usr
 	 */
 	public UserDto longin(UserDto dto) {
-		String sql = " SELECT EMAIL, PASSWORD, USERNAME FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
+		String sql = " SELECT EMAIL, PASSWORD, USERNAME, ID FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
 
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -127,8 +127,10 @@ public class UserDao {
 			if (rs.next()) {
 				String email = rs.getString(1);
 				String username = rs.getString(3);
+				int id = rs.getInt(4);
 
 				usr = new UserDto(email, null, username);
+				usr.setId(id);
 			}
 			System.out.println("3/3 login success");
 		} catch (SQLException e) {

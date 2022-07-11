@@ -29,8 +29,8 @@ public class ReservationDao {
 		return dao;
 	}
 
-	public boolean insertReservation(int userId, int movieId, int movieTimeId) {
-		String sql = " insert into reservation values(0, ?, ?, ?)  ";
+	public boolean insertReservation(int userId, int movieId, int movieTimeId, int personnel) {
+		String sql = " insert into reservation values(0, ?, ?, ?, ?)  ";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		int count = 0;
@@ -41,6 +41,7 @@ public class ReservationDao {
 			psmt.setInt(1, userId);
 			psmt.setInt(2, movieId);
 			psmt.setInt(3, movieTimeId);
+			psmt.setInt(4, personnel);
 
 			count = psmt.executeUpdate();
 
@@ -106,6 +107,33 @@ public class ReservationDao {
 		}
 
 		return count > 0 ? true : false;
+	}
+	
+	public int getMovieTimeId(String time, String theater) {
+		String sql = " select * from movie_time where time = ? and theater = ? ";
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		int result = 0;
+
+		try {
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, time);
+			psmt.setString(2, theater);
+
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, psmt, null);
+		}
+		return result;
 	}
 
 }
