@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import db.DBClose;
@@ -134,6 +135,87 @@ public class ReservationDao {
 			DBClose.close(conn, psmt, null);
 		}
 		return result;
+	}
+
+	public HashMap<String, Object> setSeat(int userId, int movieId, int movieTimeId, int personnel) {
+		
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		
+		String sql = " SELECT reservation_flag "
+	               + " FROM movie_seat "
+	               + " WHERE movie_time_id = ? ";
+		
+		Connection conn = null;
+	    PreparedStatement psmt = null;
+	    ResultSet rs = null;
+	    
+	    try {
+	         conn = DBConnection.getConnection();
+	         System.out.println("1/4 setSeat success");
+	            
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setInt(1, movieTimeId);
+	         System.out.println("2/4 setSeat success");
+	         
+	         rs = psmt.executeQuery();
+	         System.out.println("3/4 setSeat success");
+	         
+	         if(rs.next()) {
+	            
+	            map.put("reservationFlag", rs.getString(1));
+	            map.put("userId", userId);
+	            map.put("movieId", movieId);
+	            map.put("movieTimeId", movieTimeId);
+	            map.put("personnel", personnel);
+	         }
+	      } catch(SQLException e) {
+	         System.out.println("setSeat fail");
+	         e.printStackTrace();
+	      } finally {
+	         DBClose.close(conn, psmt, rs);
+	      }
+	      
+	      return map;
+	}
+
+	public boolean updateSeat(int movieTimeId, String[] selectedSeat) {
+		
+		
+		String sql = " UPDATE MOVIE_SEAT "
+	               + " SET RESERVATION_FLAG = ( SELECT CONCAT(SUBSTRING(RESERVATION_FLAG, 1 ,?),'1',SUBSTRING(RESERVATION_FLAG, ? ,100))"
+						               		+ " FROM MOVIE_SEAT "
+						               		+ " WHERE MOVIE_TIME_ID = ? )"
+				   + " WHERE MOVIE_TIME_ID = ? ";
+		
+		
+		int count = 0; 
+    	for (int i = 0; i < selectedSeat.length; i++) {
+    			
+				Connection conn = null;
+				PreparedStatement psmt = null;
+			   
+				try {
+		    		System.out.println(selectedSeat[i]);
+		    		conn = DBConnection.getConnection();
+		 		   
+				    psmt = conn.prepareStatement(sql);
+	
+				    psmt.setInt(1, Integer.parseInt(selectedSeat[i]));
+				    psmt.setInt(2, Integer.parseInt(selectedSeat[i])+2);
+				    psmt.setInt(3, movieTimeId);
+				    psmt.setInt(4, movieTimeId);
+				    
+				    count = psmt.executeUpdate();
+		    	} catch(SQLException e) {
+				    System.out.println("updateSeat fail");
+				    e.printStackTrace();
+			    } finally {
+				    DBClose.close(conn, psmt, null);
+			    }
+    	}
+	   
+	    return count > 0 ? true : false;
+		
 	}
 
 }

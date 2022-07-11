@@ -1,7 +1,11 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,17 +60,18 @@ public class ReservationController extends HttpServlet {
 			int movieId = Integer.parseInt(req.getParameter("movieId"));
 			int movieTimeId = Integer.parseInt(req.getParameter("movieTimeId"));
 			int personnel = Integer.parseInt(req.getParameter("personnel"));
-
+			String[] selectedSeat = req.getParameterValues("seatNum");
+			
 			MovieTimeDto movieTime = movieDao.getMovieTimeById(movieTimeId);
-
-			System.out.println(movieTime.toString());
 
 			String msg = "RESERVE_SUC";
 			if (movieTime.getMaxPerson() < movieTime.getNowPerson() + personnel) {
 				msg = "RESERVE_FAIL";
-			}else {
+			} else {
 				boolean isUpdate = movieDao.updateMovieTimeById(movieTimeId, personnel + movieTime.getNowPerson());
 				boolean isInsert = reservationDao.insertReservation(userId, movieId, movieTimeId, personnel);
+				
+				reservationDao.updateSeat(movieTimeId, selectedSeat);
 				
 				if (!isInsert || !isUpdate) {
 					msg = "RESERVE_FAIL";
@@ -74,7 +79,24 @@ public class ReservationController extends HttpServlet {
 				
 			}
 			resp.sendRedirect("message.jsp?msg=" + msg);
+		} else if (param.equals("setSeat")) {
+			int userId = Integer.parseInt(req.getParameter("userId"));
+			int movieId = Integer.parseInt(req.getParameter("movieId"));
+			int movieTimeId = Integer.parseInt(req.getParameter("movieTimeId"));
+			int personnel = Integer.parseInt(req.getParameter("personnel"));
+			
+			HashMap<String, Object> dto = new HashMap<String, Object>();
+			
+			dto = reservationDao.setSeat(userId, movieId, movieTimeId, personnel);
+			System.out.println(dto);
+			req.setAttribute("seatList",dto);
+	        forward("newSeat.jsp",req,resp);
 		}
 	}
+	
+	public void forward(String arg, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+       RequestDispatcher dispatch = req.getRequestDispatcher(arg);
+       dispatch.forward(req, resp);         
+    }
 
 }
