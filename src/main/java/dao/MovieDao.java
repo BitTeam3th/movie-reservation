@@ -132,7 +132,7 @@ public class MovieDao {
       
       List<HashMap<String, Object>> list=new ArrayList<HashMap<String, Object>>();
       
-      String sql = " SELECT m.id, m.title, m.img_src, mt.time, mt.theater "
+      String sql = " SELECT m.id, m.title, m.img_src, mt.time, mt.theater, mt.max_person, mt.now_person "
                + " FROM movie m, movie_time mt"
                + " WHERE m.id = mt.movie_id AND m.id = ? ";
       
@@ -160,7 +160,9 @@ public class MovieDao {
             map.put("img_src", rs.getString(3));
             map.put("time", rs.getString(4));
             map.put("theater", rs.getString(5));
-   
+            map.put("maxPerson", rs.getString(6));
+            map.put("nowPerson", rs.getString(7));
+            
             list.add(map);
          }
       } catch(SQLException e) {

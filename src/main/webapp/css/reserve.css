@@ -16768,6 +16768,11 @@ dl.total_price dd strong {
     height: 117px;
     padding: 0 20px;
     background-color: #FFF;
+    display: flex;
+    
+}
+.rightmargin{
+	margin-right: 100px;
 }
 
 /* 醫뚯꽍�좏깮 ========== */
@@ -16775,7 +16780,7 @@ dl.total_price dd strong {
 .select_num_people_wrap .movie_infor {
     position: relative;
     float: left;
-    width: 270px;
+    width: 200px;
     padding: 30px 0 0 54px;
 }
 
@@ -16856,7 +16861,6 @@ dl.total_price dd strong {
 
 .select_num_people_wrap .count_people {
     float: right;
-    width: 825px;
     margin-top: 36px;
 }
 
