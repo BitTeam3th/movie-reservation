@@ -94,7 +94,7 @@ if (loginUser == null) {
 																id="Minus|10">감소</button>
 															<div class="txt_num"><%=movieTheaters.get(i)%></div> </span></li>
 													<li id="person_10" data-code="10" data-peple="성인"
-														data-count="0"><strong class="tit">시간</strong><span
+														data-count="0" class="rightmargin"><strong class="tit">시간</strong><span
 														class="bx_num"><button class="btn_mins"
 																id="Minus|10">감소</button> <select name="time"
 															class="txt_num">
@@ -107,6 +107,7 @@ if (loginUser == null) {
 																	<%=movieTimeLists.get(j).get("time").toString().substring(6, 8)%>일
 																	<%=movieTimeLists.get(j).get("time").toString().substring(8, 10)%>시
 																	<%=movieTimeLists.get(j).get("time").toString().substring(10, 12)%>분
+																	( <%=movieTimeLists.get(j).get("nowPerson")%> / <%=movieTimeLists.get(j).get("maxPerson")%> )
 																</option>
 																<%
 																}
