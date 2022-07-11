@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MovieDao;
 import dao.ReservationDao;
 import dto.MovieTimeDto;
+import dto.ReservationDto;
 
 /**
  * 예약 관련 Controller
@@ -48,11 +49,20 @@ public class ReservationController extends HttpServlet {
 		MovieDao movieDao = MovieDao.getInstance();
 
 		if (param.equals("cancel")) {
-			if (reservationDao.deleteReservation(Integer.parseInt(req.getParameter("reservationid")))) {
-				resp.sendRedirect("mypage.jsp");
-			} else {
-				System.out.println("실패");
+			int reservationId = Integer.parseInt(req.getParameter("reservationid"));
+			ReservationDto reservationDto = reservationDao.getReservationById(reservationId);
+			MovieTimeDto movieTime = movieDao.getMovieTimeById(reservationDto.getMovieTimeId());
+			
+			
+			boolean isDelete = reservationDao.deleteReservation(reservationId);
+			boolean isPersonDelete = movieDao.updateMovieTimeById(reservationDto.getMovieTimeId(), movieTime.getNowPerson()-reservationDto.getPersonnel());;
+			
+			String msg = "DELETE_SUC";
+			if (!isDelete || !isPersonDelete) {
+				msg = "DELETE_FAIL";
 			}
+			resp.sendRedirect("message.jsp?msg=" + msg);
+			
 		} else if (param.equals("mypage")) {
 			resp.sendRedirect("mypage.jsp");
 		} else if (param.equals("insert")) {
@@ -88,7 +98,6 @@ public class ReservationController extends HttpServlet {
 			HashMap<String, Object> dto = new HashMap<String, Object>();
 			
 			dto = reservationDao.setSeat(userId, movieId, movieTimeId, personnel);
-			System.out.println(dto);
 			req.setAttribute("seatList",dto);
 	        forward("newSeat.jsp",req,resp);
 		}

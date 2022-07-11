@@ -10,6 +10,7 @@ headerContent += `
         </ul>
 
         <ul class="util">
+			<li id="userName"><a onMouseOver="this.style.cursor='default'"></a></li>
 			<li id="mainLogin" style="display:none;"><a href="`+getContextPath() +`/app?param=login">Login</a></li>
             <li id="mainRegi" style="display:none;"><a href="`+getContextPath() +`/app?param=regi">Join</a></li>
             <li id="mainLogout" style="display:none;"><a href="`+getContextPath() +`/user?param=logout">Logout</a></li>

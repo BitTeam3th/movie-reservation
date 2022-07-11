@@ -54,5 +54,19 @@ if (msg.equals("OK")) { //회원가입 성공
 	location.href = 'app?param=main';
 </script>
 <%
+} else if (msg.equals("DELETE_SUC")) { // 취소 성공
+%>
+<script type="text/javascript">
+	alert('취소 성공');
+	location.href = 'app?param=mypage';
+</script>
+<%
+} else if (msg.equals("DELETE_FAIL")) { // 취소 실패
+%>
+<script type="text/javascript">
+	alert('취소 실패');
+	location.href = 'app?param=mypage';
+</script>
+<%
 }
 %>

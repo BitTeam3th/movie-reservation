@@ -45,7 +45,6 @@ Calendar cal = Calendar.getInstance();
 .ticket_list {
 	padding:40px 50px 50px 205px;
 }
-
 </style>
 
 </head>
@@ -169,6 +168,7 @@ Calendar cal = Calendar.getInstance();
      	  	 } else {
      	   %>
 	<script>
+			$('#userName').children().text('<%=loginUser.getUsername()%> 님');
 			$('#mainLogout').show();
 			$('#mainMypage').show();
 			$('#mainLogin').hide();

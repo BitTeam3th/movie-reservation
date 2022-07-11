@@ -241,6 +241,7 @@ if (loginUser == null) {
      	  	 } else {
      	   %>
 	<script>
+			$('#userName').children().text('<%=loginUser.getUsername()%> 님');
 			$('#mainLogout').show();
 			$('#mainMypage').show();
 			$('#mainLogin').hide();

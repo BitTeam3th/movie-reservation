@@ -91,6 +91,17 @@ public class MovieCrawlingController extends HttpServlet {
 				}
 			}
 		}
+		
+		
+		if(param.equals("aaa")) {
+			
+			MovieCrawlingDao dao = MovieCrawlingDao.getInstance();
+			String msg = "SAVEFAIL";
+			boolean isS = dao.aaa();
+			if(isS) {
+				msg = "SAVESUCCESS";
+			}
+		}
 	}
 	
 //	시간에 0넣어주기

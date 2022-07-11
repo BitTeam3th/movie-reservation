@@ -109,24 +109,30 @@ public class ReservationDao {
 
 		return count > 0 ? true : false;
 	}
-	
-	public int getMovieTimeId(String time, String theater) {
-		String sql = " select * from movie_time where time = ? and theater = ? ";
+
+	public ReservationDto getReservationById(int id) {
+		
+		String sql = " select id, user_id, movie_time_id, personnel "
+				+ "from reservation "
+				+ "where id = ?";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		int result = 0;
-
+		ReservationDto reservation = new ReservationDto();
+		
 		try {
 			conn = DBConnection.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, time);
-			psmt.setString(2, theater);
+			psmt.setInt(1, id);
 
 			rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				result = rs.getInt(1);
+				reservation.setReservationId(rs.getInt(1));
+				reservation.setUserId(rs.getInt(2));
+				reservation.setMovieTimeId(rs.getInt(3));
+				reservation.setPersonnel(rs.getInt(4));
 			}
 
 		} catch (SQLException e) {
@@ -134,7 +140,7 @@ public class ReservationDao {
 		} finally {
 			DBClose.close(conn, psmt, null);
 		}
-		return result;
+		return reservation;
 	}
 
 	public HashMap<String, Object> setSeat(int userId, int movieId, int movieTimeId, int personnel) {
@@ -195,7 +201,6 @@ public class ReservationDao {
 				PreparedStatement psmt = null;
 			   
 				try {
-		    		System.out.println(selectedSeat[i]);
 		    		conn = DBConnection.getConnection();
 		 		   
 				    psmt = conn.prepareStatement(sql);
