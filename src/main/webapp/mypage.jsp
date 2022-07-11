@@ -38,6 +38,16 @@ Calendar cal = Calendar.getInstance();
 <script src="./js/jQuery.js"></script>
 <!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<style type="text/css">
+.ticket_list .ticket_info .ticket::after{
+	width: 0px;
+}
+.ticket_list {
+	padding:40px 50px 50px 205px;
+}
+</style>
+
 </head>
 
 <body>
@@ -47,7 +57,7 @@ Calendar cal = Calendar.getInstance();
 
 	<div class="wrap" id="wrap">
 		<div class="ticket_list"
-			style="overflow:scroll; height:50%; margin-top: 10%; margin-left: 20%; width: 1200px">
+			style="overflow:scroll; height:60%; margin: 10% auto; width: 1000px; overflow-x: auto;">
 			<%
 			for (int i = 0; i < list.size(); i++) {
 				ReservationDto reservation = list.get(i);
@@ -65,7 +75,7 @@ Calendar cal = Calendar.getInstance();
 							<em>17051080</em>
 						</span><span class="txt_col7 ty2">취소가능</span>
 					</button>
-					<div class="ticket">
+					<div class="ticket" style="min-height:100px;">
 						<div class="info_area">
 							<div class="img">
 								<img src="<%=reservation.getMovieImg()%>" alt="">
