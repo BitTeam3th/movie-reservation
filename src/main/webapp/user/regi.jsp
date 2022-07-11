@@ -69,7 +69,7 @@ color: #212121 !important;border-color:#333 !important;}
                 </div>
             </div>
             <div class="confirmTempBtnWrap">
-            	<button type="submit" class="join strokeDarkGrey util sizeFull alignLeft">회원가입</button>
+            	<button type="submit" class="join strokeDarkGrey util sizeFull alignLeft" onclick="idChk()">회원가입</button>
           	</div>
             <div class="btnConfirmWrap"></div>
         </div>
@@ -82,6 +82,7 @@ color: #212121 !important;border-color:#333 !important;}
 		let check = $('#email').val();
 		if (!check) {
 			alert('아이디를 입력해주세요!');
+			isCheck = false;
 			$('#email').focus();
 			return;
 		}
@@ -96,6 +97,7 @@ color: #212121 !important;border-color:#333 !important;}
 					if (data.msg.trim() == 'YES') {
 						alert('사용 가능한 아이디 입니다!');
 						$('#email').attr('readonly', 'readonly');
+						isCheck = true;
 					} else {
 						alert('이미 존재하는 아이디 입니다 다시 입력해주세요!');
 						$('#email').val('').focus();
@@ -109,14 +111,22 @@ color: #212121 !important;border-color:#333 !important;}
 	});
 <%-- validation --%>
 function ValidateEmail(mail) {
-	let test=	$('#email').val();
-	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(test)) {
+	let email =	$('#email').val();
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
     	return (true);
 	}
     alert("이메일 형식을 입력해주세요! example@example.com")
     $('#email').val('').focus();
     return (false);
 }
+<%-- id check --%>
+function idChk() {
+	let email =$('#email').val();
+	if (!isCheck) {
+		alert('아이디 체크 버튼을 눌러주세요!')
+	}
+}
+let isCheck = false;
 </script>
 </body>
 </html>
