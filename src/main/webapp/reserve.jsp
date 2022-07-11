@@ -156,14 +156,10 @@ if (loginUser.getEmail() == null) {
 
 	<script>
 	window.onload = function() {
-		<%
-		if (movieTimeLists.size() == 0) {
-		%>
+		<%if (movieTimeLists.size() == 0) {%>
 				alert("상영관이 없습니다.");
 				location.href=getContextPath()+'/app?param=main';
-		<%
-		}
-		%>
+		<%}%>
 		}
       var maskHeight = $(document).height();
       var maskWidth = $(window).width();
@@ -204,10 +200,11 @@ if (loginUser.getEmail() == null) {
 	} else {
 	%>
 	<script>
-         $('#mainLogout').show();
-         $('#mainMypage').show();
-         $('#mainLogin').hide();
-         $('#mainRegi').hide();
+		$('#userName').children().text('<%=loginUser.getUsername()%> 님');
+		$('#mainLogout').show();
+		$('#mainMypage').show();
+		$('#mainLogin').hide();
+		$('#mainRegi').hide();
     </script>
 	<%
 	}
@@ -216,13 +213,9 @@ if (loginUser.getEmail() == null) {
     function reservFunc(index) {
 		let userId = <%=loginUser.getId()%>;
 		
-		<%
-		if (movieTimeLists.size() != 0) {
-		%>
+		<%if (movieTimeLists.size() != 0) {%>
 			let movieId = <%=movieTimeLists.get(0).get("id")%>;
-		<%
-		}
-		%>
+		<%}%>
 		
 		  
 		let movieTimeId = $('#time'+index+' option:selected').val();
