@@ -213,9 +213,7 @@ if (loginUser.getEmail() == null) {
 	<header id="header"></header>
 	<script src="./js/header.js"></script>
 	<script>
-        var input = "<%=SeatLists.get("reservationFlag")%>
-		";
-		console.log(input);
+        var input = "<%=SeatLists.get("reservationFlag")%>";
 		var fit_input = [];
 		for (let i = 0; i < 11; i++) {
 			fit_input[i] = input.substring(i * 10, (i + 1) * 10);
