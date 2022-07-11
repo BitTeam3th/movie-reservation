@@ -90,7 +90,7 @@ if (loginUser == null) {
 												<ul>
 													<li id="person_10" data-code="10" data-peple="성인"
 														data-count="0"><strong class="tit">지점</strong><span
-														class="bx_num"><button class="btn_mins"
+														class="bx_num" style="width:160px"><button class="btn_mins"
 																id="Minus|10">감소</button>
 															<div class="txt_num"><%=movieTheaters.get(i)%></div> </span></li>
 													<li id="person_10" data-code="10" data-peple="성인"
