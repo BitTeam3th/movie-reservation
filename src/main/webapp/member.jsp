@@ -49,7 +49,7 @@ if (loginUser == null) {
 							<h1 style="position: inherit;">양 준 혁</h1>
 							<h2>LOTTE DEVELOPER</h2>
 
-							<a id="id_btn_member6" href="#" class="btnView">VIEW MORE</a>
+							<a id="id_btn_member6" href="https://github.com/YJay94" class="btnView">VIEW MORE</a>
 						</article>
 
 						<ul class="contact">
@@ -78,7 +78,7 @@ if (loginUser == null) {
 					<h1 style="position: inherit;">김 진 광</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
-					<a id="id_btn_member11" href="#" class="btnView">VIEW MORE</a>
+					<a id="id_btn_member11" href="https://github.com/Nicolao911" class="btnView">VIEW MORE</a>
 				</article>
 
 				<ul class="contact">
@@ -107,7 +107,7 @@ if (loginUser == null) {
 					<h1 style="position: inherit;">박 세 훈</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
-					<a id="id_btn_member6" href="#" class="btnView">VIEW MORE</a>
+					<a id="id_btn_member6" href="https://github.com/SBHbro" class="btnView">VIEW MORE</a>
 				</article>
 
 				<ul class="contact">
@@ -136,7 +136,7 @@ if (loginUser == null) {
 					<h1 style="position: inherit;">이 석 원</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
-					<a id="id_btn_member9" href="#" class="btnView">VIEW MORE</a>
+					<a id="id_btn_member9" href="https://github.com/clalsw" class="btnView">VIEW MORE</a>
 				</article>
 
 				<ul class="contact">
@@ -165,7 +165,7 @@ if (loginUser == null) {
 					<h1 style="position: inherit;">김 진 우</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
-					<a id="id_btn_member10" href="#" class="btnView">VIEW MORE</a>
+					<a id="id_btn_member10" href="https://github.com/jinwooooooo" class="btnView">VIEW MORE</a>
 				</article>
 
 				<ul class="contact">
@@ -194,7 +194,7 @@ if (loginUser == null) {
 					<h1 style="position: inherit;">오 명 주</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
-					<a id="id_btn_member11" href="#" class="btnView">VIEW MORE</a>
+					<a id="id_btn_member11" href="https://github.com/omj9803" class="btnView">VIEW MORE</a>
 					<ul class="contact">
 					<li><i class="fab fa-facebook-f"></i> <span>Visit My
 							Facebook page.</span></li>
