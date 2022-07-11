@@ -36,48 +36,10 @@ color: #212121 !important;border-color:#333 !important;}
 </head>
 <body>
 <%-- 회원가입 양식--%>
-<%-- <div class="center">
-	<form action="<%=request.getContextPath() %>/user" method="post" id="frm">
-		<input type="hidden" name="param" value="regiAf">
-		<table border="1">
-			<tr>
-				<th>이메일</th>
-				<td>
-					<input type="text" id="email" name="email" size="20">
-					<p id="idcheck" style="font-size: 8px"></p>
-					<input type="button" id="idBtn" value="아이디확인">
-				</td>
-			</tr>
-			<tr>
-				<th>패스워드</th>
-				<td>
-					<input type="text" id="pwd" name="pwd" size="20">
-				</td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td>
-					<input type="text" id="username" name="username" size="20">
-				</td>
-			</tr>
-
-			<tr>
-				<td colspan="2">
-					<input type="button" onclick="join()" value="회원가입">
-				</td>
-			</tr>
-			
-		</table>
-	
-	</form>
-</div> --%>
-
-
-	<%-- 회원가입 양식--%>
 <main id="content" role="main" class="contentArea on">
 	<form action="<%=request.getContextPath() %>/user" method="post" id="frm">
 		<input type="hidden" name="param" value="regiAf">
-		<div class="signupLayout">
+		<div class="signupLayout" id="signup" style="margin-top: 10%;">
 			<h2 class="titleSet titBig">
 				<span>
 					<img src="<%=request.getContextPath() %>/img/logo.png" style="width:80px; height:80px;">
@@ -87,27 +49,27 @@ color: #212121 !important;border-color:#333 !important;}
             <div class="section input">
             	<div class="inputSet" data-validate="E-mail is required">
                 	<label for="userBusinessNo" class="inputTitle" >Email</label>
-                	<input style="width: 430px;" id="email" name="email" type="email" value="" placeholder="Email을 입력해 주세요." maxlength="50">
+                	<input style="width: 430px;" id="email" name="email" type="email" value="" placeholder="example@example.com" maxlength="50" required="required">
                     <div class="alertTxt"></div>
                     <input type="button" class="strokeDarkGrey util sizeFull alignLeft " id="idBtn" value="아이디확인" style="color: #212121 !important;border-color:#333 !important;font-size: 10pt; width: 90px;float: right;margin-bottom: 15px;margin-top: 1px;height: 45px;">
             	</div>
             </div>
-            <div class="section input">
+            <div class="section input" data-validate="Password is required">
                 <div class="inputSet">
                 	<label for="userBusinessNo" class="inputTitle">Password</label>
-                	<input id="pwd" type="text" value="" name="pwd" placeholder="패스워드를 입력해 주세요." maxlength="10">
+                	<input id="pwd" type="text" value="" name="pwd" placeholder="패스워드를 입력해 주세요." maxlength="10" required="required">
                     <div class="alertTxt"></div>
                 </div>
             </div>
-            <div class="section input">
+            <div class="section input" data-validate="username is required">
                 <div class="inputSet">
                 	<label for="userBusinessNo" class="inputTitle">이름</label>
-                	<input id="username" type="text" name="username" value="" placeholder="이름을 입력해 주세요." maxlength="10">
+                	<input id="username" type="text" name="username" value="" placeholder="이름을 입력해 주세요." maxlength="10" required="required">
                     <div class="alertTxt"></div>
                 </div>
             </div>
             <div class="confirmTempBtnWrap">
-            	<input type="button" class="join strokeDarkGrey util sizeFull alignLeft"  onclick="join()" value="회원가입">
+            	<button type="submit" class="join strokeDarkGrey util sizeFull alignLeft">회원가입</button>
           	</div>
             <div class="btnConfirmWrap"></div>
         </div>
@@ -117,55 +79,44 @@ color: #212121 !important;border-color:#333 !important;}
 <script type="text/javascript">
 	<%-- 아이디 중복 체크 --%>
 	$('#idBtn').click(function() {
-		ischecked = true;
 		let check = $('#email').val();
 		if (!check) {
 			alert('아이디를 입력해주세요!');
 			$('#email').focus();
 			return;
 		}
-		$.ajax({
-			url : '<%=request.getContextPath()%>/user?param=idCheck',
-			type : 'post',
-			dataType : 'json',
-			data : {email : check},
-			success : function(data) {
-				if (data.msg.trim() == 'YES') {
-					alert('사용 가능한 아이디 입니다!');
-				} else {
-					alert('이미 존재하는 아이디 입니다 다시 입력해주세요!');
-					$('#email').val('').focus();
-// 					ischecked = false;
+		let validateForm = ValidateEmail(email);
+		if (validateForm) {
+			$.ajax({
+				url : '<%=request.getContextPath()%>/user?param=idCheck',
+				type : 'post',
+				dataType : 'json',
+				data : {email : check},
+				success : function(data) {
+					if (data.msg.trim() == 'YES') {
+						alert('사용 가능한 아이디 입니다!');
+						$('#email').attr('readonly', 'readonly');
+					} else {
+						alert('이미 존재하는 아이디 입니다 다시 입력해주세요!');
+						$('#email').val('').focus();
+					}
+				},
+				error: function (e) {
+					alert('error!');
 				}
-			},
-			error: function (e) {
-				alert('error!');
-			}
-		});
+			});
+		}
 	});
-	
-	$('#email').click( function() {
-		ischecked = false;
-	});
-<%-- 회원 가입 --%>
-function join() {
-	let email = $('#email').val();
-	let pwd = $('#pwd').val();
-	let username = $('#username').val();
-	if (ischecked) {
-// 		 document.tmpFrm.signup.data-validate();
-	} else {
-		alert('아이디 중복 검사를 해주세요!');
-		return false;
+<%-- validation --%>
+function ValidateEmail(mail) {
+	let test=	$('#email').val();
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(test)) {
+    	return (true);
 	}
-	if (email.trim() == '' || pwd.trim() == '' || username.trim() == '') {
-		alert('입력정보를 확인해주세요!');
-		return;
-	}
-	$('#frm').submit();
+    alert("이메일 형식을 입력해주세요! example@example.com")
+    $('#email').val('').focus();
+    return (false);
 }
-//아이디 중복 체크 실행 여부
-let ischecked = false;
 </script>
 </body>
 </html>

@@ -63,9 +63,9 @@ if (loginUser.getEmail() == null) {
 
 	<div class="wrap" id="wrap">
 		<!-- <div>
-         <div id="layer" style="background-color: black;">
-            <div id="contents" class="contents_full contents_reserve"
-               style="margin-top: 120px;"> -->
+			<div id="layer" style="background-color: black;">
+				<div id="contents" class="contents_full contents_reserve"
+					style="margin-top: 120px;"> -->
 		<div class="wrap_reserve">
 			<h2 class="hidden" style="text-align: center;">예매하기</h2>
 			<div id="reserveStep02" class="section_step_con step02 active">
@@ -148,11 +148,9 @@ if (loginUser.getEmail() == null) {
 			</div>
 		</div>
 		<!-- </div>
-         </div>
-      </div> -->
+			</div>
+		</div> -->
 	</div>
-
-
 	<footer id="footer"></footer>
 	<script src="./js/footer.js"></script>
 
@@ -207,12 +205,10 @@ if (loginUser.getEmail() == null) {
 	<script>
     function reservFunc(index) {
     	let userId = <%=loginUser.getId()%>;
-        <%
-        int movieId = -1;
-        if(movieTimeLists.get(0)!= null){
-        	movieId= (int)movieTimeLists.get(0).get("id");
-        }
-        %>
+        <%int movieId = -1;
+if (movieTimeLists.get(0) != null) {
+	movieId = (int) movieTimeLists.get(0).get("id");
+}%>
         let movieId = <%=movieId%>;
         if(movieId == -1){
      	   alert("상영관이 없습니다.");
