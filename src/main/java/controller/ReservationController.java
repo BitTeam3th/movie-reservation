@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MovieDao;
 import dao.ReservationDao;
+import dto.MovieTimeDto;
 
 /**
  * 예약 관련 Controller
@@ -37,17 +39,41 @@ public class ReservationController extends HttpServlet {
 	 */
 	public void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-
 		String param = req.getParameter("param");
+		ReservationDao reservationDao = ReservationDao.getInstance();
+		MovieDao movieDao = MovieDao.getInstance();
+
 		if (param.equals("cancel")) {
-			ReservationDao dao = ReservationDao.getInstance();
-			if (dao.deleteReservation(Integer.parseInt(req.getParameter("reservationid")))) {
+			if (reservationDao.deleteReservation(Integer.parseInt(req.getParameter("reservationid")))) {
 				resp.sendRedirect("mypage.jsp");
 			} else {
 				System.out.println("실패");
 			}
 		} else if (param.equals("mypage")) {
 			resp.sendRedirect("mypage.jsp");
+		} else if (param.equals("insert")) {
+			int userId = Integer.parseInt(req.getParameter("userId"));
+			int movieId = Integer.parseInt(req.getParameter("movieId"));
+			int movieTimeId = Integer.parseInt(req.getParameter("movieTimeId"));
+			int personnel = Integer.parseInt(req.getParameter("personnel"));
+
+			MovieTimeDto movieTime = movieDao.getMovieTimeById(movieTimeId);
+
+			System.out.println(movieTime.toString());
+
+			String msg = "RESERVE_SUC";
+			if (movieTime.getMaxPerson() < movieTime.getNowPerson() + personnel) {
+				msg = "RESERVE_FAIL";
+			}else {
+				boolean isUpdate = movieDao.updateMovieTimeById(movieTimeId, personnel + movieTime.getNowPerson());
+				boolean isInsert = reservationDao.insertReservation(userId, movieId, movieTimeId, personnel);
+				
+				if (!isInsert || !isUpdate) {
+					msg = "RESERVE_FAIL";
+				}
+				
+			}
+			resp.sendRedirect("message.jsp?msg=" + msg);
 		}
 	}
 
