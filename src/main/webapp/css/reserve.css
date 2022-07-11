@@ -15050,12 +15050,13 @@ dl.total_price dd strong {
 
 /* �덈ℓ ============================================================ */
 .wrap_reserve {
-    overflow: hidden;
+    overflow: scorll;
     position: relative;
     width: 1280px;
-    height: 870px;
+    height: 800px;
     margin: 0 auto;
     background-color: #FFF;
+    margin-top: 120px;
 }
 
 .wrap_reserve:after {
@@ -15130,7 +15131,7 @@ dl.total_price dd strong {
 
 .wrap_reserve .section_step_tit ul li.active>a:before {
     content: "�꾩옱 �④퀎";
-    overflow: hidden;
+    overflow: scroll;
     position: absolute;
     width: 1px;
     height: 1px;
@@ -15170,7 +15171,7 @@ dl.total_price dd strong {
 }
 
 .wrap_reserve .section_step_tit ul li>a .bx_con dl dt {
-    overflow: hidden;
+    overflow: scroll;
     position: absolute;
     width: 1px;
     height: 1px;
@@ -15255,8 +15256,8 @@ dl.total_price dd strong {
     overflow: inherit;
     position: relative;
     width: 1202px;
-    height: 100%;
-    margin-left: 78px;
+    height: calc(100% - 80px);
+    margin: 0 auto;
 }
 
 .wrap_reserve .section_step_con .article {
@@ -15442,8 +15443,9 @@ dl.total_price dd strong {
 }
 
 .wrap_reserve .section_step_con .article.article_seat>.inner {
-    overflow: hidden;
-    height: 815px;
+    overflow: scoll;
+    height: calc(100% - 80px);
+    overflow-x: hidden;
 }
 
 /* article : 03寃곗젣/�덈ℓ�뺣낫 ========== */
