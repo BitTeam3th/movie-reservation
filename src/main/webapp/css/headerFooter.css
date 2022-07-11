@@ -1,4 +1,12 @@
 @charset 'utf-8';
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;
@@ -32,7 +40,7 @@ header .inner h1 {
 header .inner h1 a {
 	font: bold 24px/1 "arial";
 	color: #444;
-	font-family : monospace;
+	font-family : S-CoreDream-4Regular;
 }
 header .inner .util {
 	position: absolute;
@@ -58,7 +66,7 @@ header .inner #gnb li {
 }
 header .inner #gnb li a {
 	display: block; /*인라인 요소는 block설정하여 크기를 조절가능*/
-	font: bold 15px/1 "arial";
+	font: bold 15px/1 "S-CoreDream-4Regular";
 	color: #555;
 	padding: 20px 40px;
 	transition: all 0.5s;
