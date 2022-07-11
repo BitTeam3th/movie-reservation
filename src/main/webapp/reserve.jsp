@@ -114,7 +114,6 @@ List<String> movieTheaters = (List<String>)request.getAttribute("movieTheater");
 
 
                            
-
                         </div>
                      </div>
 
