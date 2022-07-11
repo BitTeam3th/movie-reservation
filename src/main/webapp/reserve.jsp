@@ -32,9 +32,13 @@ if (loginUser == null) {
       <!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
       <%if (loginUser.getEmail() == null) {
-    	   %>
+   	   %>
       <script type="text/javascript">
-    	   location.href=<%=request.getContextPath()%>'/app?param=login';
+		function getContextPath() {
+			var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+			return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+	   	}
+		location.href=getContextPath()+'/app?param=login';
       </script>
     	   <%
     	  	 } else {
