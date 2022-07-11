@@ -30,7 +30,7 @@ if (msg.equals("OK")) { //회원가입 성공
 %>
 <script type="text/javascript">
 	alert('환영합니다!');
-	location.href = 'user?param=main';
+	location.href = 'app?param=main';
 </script>
 <%
 } else if(msg.equals("loginFail")) { //로그인 실패

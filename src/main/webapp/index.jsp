@@ -70,7 +70,6 @@ List<MovieDto> lists = dao.getMovieList();
                      src="<%=lists.get(i).getImg_src()%>">
                      <h2><%=lists.get(i).getTitle()%></h2>
                      <p><%=lists.get(i).getContent()%></p>
-
                      <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
                      <input type="hidden" value = "<%=lists.get(i).getRating() %>">
                      <input type="hidden" value = "<%=lists.get(i).getTicketingRate() %>">
@@ -80,6 +79,7 @@ List<MovieDto> lists = dao.getMovieList();
                      <input type="hidden" value = "<%=lists.get(i).getRunningTime()%>">
                      <input type="hidden" value = "<%=lists.get(i).getDirector() %>">
                      <input type="hidden" value = "<%=lists.get(i).getCast()%>">
+                     <input type="hidden" value = "<%=lists.get(i).getId() %>">
 
                   </a>
                </div>
@@ -119,7 +119,7 @@ List<MovieDto> lists = dao.getMovieList();
             </div>
 
             <div>
-               <a href="./reserve.jsp"><img class="layerButton"
+               <a id="goReserv" href=""><img class="layerButton"
                   src="img/bookButton.jpg"></a>
             </div>
          </div>
@@ -195,8 +195,6 @@ List<MovieDto> lists = dao.getMovieList();
        $('#SearchLayer').show(); 
        
        
-       console.log(input.children[0].children[0].children[0].src);
-       console.log(input.children[0].children[2]);
        document.getElementById('id_layerImg').src= input.children[0].children[0].children[0].src;
        document.getElementById('spanDesc').innerText= input.children[0].children[0].children[2].innerText;
        document.getElementById('director').innerText= input.children[0].children[0].children[3].value;
@@ -208,8 +206,8 @@ List<MovieDto> lists = dao.getMovieList();
        document.getElementById('openDate').innerText= input.children[0].children[0].children[8].value;
        document.getElementById('runningTime').innerText= input.children[0].children[0].children[9].value;
        document.getElementById('director').innerText= input.children[0].children[0].children[10].value;
-       document.getElementById('cast').innerText= input.children[0].children[0].children[11].value
-
+       document.getElementById('cast').innerText= input.children[0].children[0].children[11].value;
+       document.getElementById('goReserv').href = "movie?param=movieTimeListById&id="+input.children[0].children[0].children[12].value;
        setTimeout(function() {
            $('html').click((e) => {
                if (e.target.id !== 'layerWhite' && $(e.target).parents('#layerWhite').length === 0) {

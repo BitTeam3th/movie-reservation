@@ -1,5 +1,12 @@
+<%@page import="dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+UserDto loginUser = (UserDto)session.getAttribute("login");
+if (loginUser == null) {
+	loginUser = new UserDto();
+}
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,14 +22,13 @@
 <link rel="stylesheet" href="css/headerFooter.css">
 <link rel="stylesheet" href="css/member.css">
 
-<script src="./js/jQuery.js"></script>
-<!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
+<script src="<%=request.getContextPath() %>/js/jQuery.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
 
 	<header id="header"></header>
-	<script src="./js/header.js"></script>
+	<script src="<%=request.getContextPath() %>/js/header.js"></script>
 
 	<div class="wrap" id="wrap">
 		<div class="member6" style="position: absolute; margin-left: 5%">
@@ -88,6 +94,24 @@
 
 	<footer id="footer"></footer>
 	<script src="./js/footer.js"></script>
+	<script type="text/javascript">
+	   <%if (loginUser.getEmail() == null) {
+		   %>
+			   $('#mainLogin').show();
+			   $('#mainRegi').show();
+				$('#mainMypage').hide();
+				$('#mainLogout').hide();
+		   <%
+		  	 } else {
+		   %>
+			   $('#mainLogout').show();
+			   $('#mainMypage').show();
+			   $('#mainLogin').hide();
+			   $('#mainRegi').hide();
+		   <%
+			}
+		   %>
+	</script>
 
 </body>
 </html>
