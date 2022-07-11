@@ -43,7 +43,7 @@ if (loginUser == null) {
    </script>
 
    <header id="header"></header>
-   <script src="<%=request.getContextPath() %>/js/header.js"></script>
+   <script src="./js/header.js"></script>
 
    <div class="wrap" id="wrap">
       <h1>
