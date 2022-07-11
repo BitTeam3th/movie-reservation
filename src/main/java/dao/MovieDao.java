@@ -12,6 +12,7 @@ import java.util.Map;
 import db.DBClose;
 import db.DBConnection;
 import dto.MovieDto;
+import dto.MovieTimeDto;
 
 public class MovieDao {
    
@@ -126,6 +127,74 @@ public class MovieDao {
       }
       
       return dto;
+   }
+   
+   public MovieTimeDto getMovieTimeById(int movieTimeId) {
+	   String sql = " select id, movie_id, time, theater, max_person, now_person "
+			   + " from movie_time "
+			   + " where id = ?";
+	   
+	   Connection conn = null;
+	      PreparedStatement psmt = null;
+	      ResultSet rs = null;
+	      
+	      MovieTimeDto dto = new MovieTimeDto();
+
+	      try {
+	          conn = DBConnection.getConnection();
+	    
+	          psmt = conn.prepareStatement(sql);
+	          psmt.setInt(1, movieTimeId);
+	          
+	          rs = psmt.executeQuery();
+	          
+	          if(rs.next()) {
+	             dto.setId(rs.getInt(1));
+	             dto.setMovieId(rs.getInt(2));
+	             dto.setTime(rs.getString(3));
+	             dto.setTheater(rs.getString(4));
+	             dto.setMaxPerson(rs.getInt(5));
+	             dto.setNowPerson(rs.getInt(6));
+	          }
+	          
+	       } catch(SQLException e) {
+	          System.out.println("getMovieTimeById fail");
+	          e.printStackTrace();
+	       } finally {
+	          DBClose.close(conn, psmt, rs);
+	       }
+	       
+	       return dto;
+   }
+   
+   public boolean updateMovieTimeById(int movieTimeId ,int nowPerson) {
+	   String sql = " update movie_time "
+			   + " set now_person = ? "
+			   + " where id = ? ";
+	   
+	   Connection conn = null;
+	   PreparedStatement psmt = null;
+	   
+	   int count = 0;
+	   
+	   try {
+		   conn = DBConnection.getConnection();
+		   
+		   psmt = conn.prepareStatement(sql);
+
+		   psmt.setInt(1, nowPerson);
+		   psmt.setInt(2, movieTimeId);
+		   
+		   count = psmt.executeUpdate();
+			
+	   } catch(SQLException e) {
+		   System.out.println("getMovieTimeById fail");
+		   e.printStackTrace();
+	   } finally {
+		   DBClose.close(conn, psmt, null);
+	   }
+	   
+	   return count>0?true : false;
    }
 
    public List<HashMap<String, Object>> getMovieTimeListById(int seq) {

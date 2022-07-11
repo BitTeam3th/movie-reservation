@@ -206,11 +206,21 @@ if (loginUser.getEmail() == null) {
 	%>
 	<script>
     function reservFunc(index) {
-       let userId = <%=loginUser.getId()%>;
-       let movieId = <%=movieTimeLists.get(0).get("id")%>;
-      let movieTimeId = $('#time'+index+' option:selected').val();
-      let personnel = $('#personnel'+index+' option:selected').val();
-      location.href=getContextPath()+'/reservation?param=insert&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
+    	let userId = <%=loginUser.getId()%>;
+        <%
+        int movieId = -1;
+        if(movieTimeLists != null){
+        	movieId= (int)movieTimeLists.get(0).get("id");
+        }
+        %>
+        let movieId = <%=movieId%>;
+        if(movieId == -1){}
+     	   alert("상영관이 없습니다.")ㅣ
+     	   return;
+     	   }
+       let movieTimeId = $('#time'+index+' option:selected').val();
+       let personnel = $('#personnel'+index+' option:selected').val();
+       location.href=getContextPath()+'/reservation?param=insert&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
    }
     </script>
 </body>

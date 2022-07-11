@@ -50,7 +50,7 @@ if (msg.equals("OK")) { //회원가입 성공
 } else if (msg.equals("RESERVE_FAIL")) { // 예매 실패
 %>
 <script type="text/javascript">
-	alert('예매 실패~');
+	alert('예매 실패');
 	location.href = 'app?param=main';
 </script>
 <%
