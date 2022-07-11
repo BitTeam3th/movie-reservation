@@ -6,12 +6,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-UserDto obj = (UserDto) session.getAttribute("login");
+UserDto loginUser = (UserDto) session.getAttribute("login");
+if (loginUser == null) {
+	loginUser = new UserDto();
+}
 %>
 <%
 ReservationDao dao = ReservationDao.getInstance();
-List<ReservationDto> list = dao.getReservationList(obj.getEmail());
+List<ReservationDto> list = dao.getReservationList(loginUser.getEmail());
 Calendar cal = Calendar.getInstance();
+
 %>
 
 <!DOCTYPE html>
@@ -141,6 +145,22 @@ Calendar cal = Calendar.getInstance();
 		function deleteReservation(id){
 			location.href=getContextPath()+'/reservation?param=cancel&reservationid='+id;
 		}
+		   <%if (loginUser.getEmail() == null) {
+			   %>
+			   		$('#mainLogin').show();
+			   		$('#mainRegi').show();
+					$('#mainMypage').hide();
+					$('#mainLogout').hide();
+			   <%
+			  	 } else {
+			   %>
+				   $('#mainLogout').show();
+				   $('#mainMypage').show();
+				   $('#mainLogin').hide();
+				   $('#mainRegi').hide();
+			   <%
+				}
+			   %>
 	</script>
 
 </body>
