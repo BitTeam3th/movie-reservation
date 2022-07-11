@@ -43,7 +43,7 @@ Calendar cal = Calendar.getInstance();
 
 	<div class="wrap" id="wrap">
 		<div class="ticket_list"
-			style="margin-top: 10%; margin-left: 10%; width: 1400px">
+			style="overflow:scroll; height:50%; margin-top: 10%; margin-left: 20%; width: 1200px">
 			<%
 			for (int i = 0; i < list.size(); i++) {
 				ReservationDto reservation = list.get(i);
@@ -104,6 +104,7 @@ Calendar cal = Calendar.getInstance();
 
 				</li>
 			</ul>
+			</br>
 			<%
 			}
 			%>

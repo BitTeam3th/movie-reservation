@@ -10,6 +10,7 @@ ol {
 }
 a {
 	text-decoration: none;
+	font-family : monospace;
 }
 
 /* header */
@@ -31,6 +32,7 @@ header .inner h1 {
 header .inner h1 a {
 	font: bold 24px/1 "arial";
 	color: #444;
+	font-family : monospace;
 }
 header .inner .util {
 	position: absolute;

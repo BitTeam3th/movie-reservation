@@ -68,12 +68,128 @@ if (loginUser == null) {
 				</nav>
 
 				<article class="profile">
-					<img src="img/member6.jpg" alt="프로필 이미지">
+					<img src="img/member11.jpg" alt="프로필 이미지">
 
-					<h1 style="position: inherit;">양 준 혁</h1>
+					<h1 style="position: inherit;">김 진 광</h1>
+					<h2>LOTTE DEVELOPER</h2>
+
+					<a id="id_btn_member11" href="#" class="btnView">VIEW MORE</a>
+				</article>
+
+				<ul class="contact">
+					<li><i class="fab fa-facebook-f"></i> <span>Visit My
+							Facebook page.</span></li>
+					<li><i class="fas fa-envelope "></i> <span>leyjh220602@gmail.com</span>
+					</li>
+				</ul>
+
+				<nav class="others">
+					<a href="#" class="on"></a> <a href="#"></a> <a href="#"></a> <a
+						href="#"></a>
+				</nav>
+			</section>
+		</div>
+				<div class="member6" style="position: absolute; margin-left: 65%">
+			<section>
+				<nav class="menu">
+					<a href="#"><i class="fas fa-bars"></i></a> <a href="#"><i
+						class="far fa-sticky-note"></i></a>
+				</nav>
+
+				<article class="profile">
+					<img src="img/member8.jpg" alt="프로필 이미지">
+
+					<h1 style="position: inherit;">박 세 훈</h1>
 					<h2>LOTTE DEVELOPER</h2>
 
 					<a id="id_btn_member6" href="#" class="btnView">VIEW MORE</a>
+				</article>
+
+				<ul class="contact">
+					<li><i class="fab fa-facebook-f"></i> <span>Visit My
+							Facebook page.</span></li>
+					<li><i class="fas fa-envelope "></i> <span>leyjh220602@gmail.com</span>
+					</li>
+				</ul>
+
+				<nav class="others">
+					<a href="#" class="on"></a> <a href="#"></a> <a href="#"></a> <a
+						href="#"></a>
+				</nav>
+			</section>
+		</div>
+				<div class="member6" style="position: absolute; margin-left: 95%">
+			<section>
+				<nav class="menu">
+					<a href="#"><i class="fas fa-bars"></i></a> <a href="#"><i
+						class="far fa-sticky-note"></i></a>
+				</nav>
+
+				<article class="profile">
+					<img src="img/member9.jpg" alt="프로필 이미지">
+
+					<h1 style="position: inherit;">이 석 원</h1>
+					<h2>LOTTE DEVELOPER</h2>
+
+					<a id="id_btn_member9" href="#" class="btnView">VIEW MORE</a>
+				</article>
+
+				<ul class="contact">
+					<li><i class="fab fa-facebook-f"></i> <span>Visit My
+							Facebook page.</span></li>
+					<li><i class="fas fa-envelope "></i> <span>leyjh220602@gmail.com</span>
+					</li>
+				</ul>
+
+				<nav class="others">
+					<a href="#" class="on"></a> <a href="#"></a> <a href="#"></a> <a
+						href="#"></a>
+				</nav>
+			</section>
+		</div>
+				<div class="member6" style="position: absolute; margin-left: 125%">
+			<section>
+				<nav class="menu">
+					<a href="#"><i class="fas fa-bars"></i></a> <a href="#"><i
+						class="far fa-sticky-note"></i></a>
+				</nav>
+
+				<article class="profile">
+					<img src="img/member10.jpg" alt="프로필 이미지">
+
+					<h1 style="position: inherit;">김 진 우</h1>
+					<h2>LOTTE DEVELOPER</h2>
+
+					<a id="id_btn_member10" href="#" class="btnView">VIEW MORE</a>
+				</article>
+
+				<ul class="contact">
+					<li><i class="fab fa-facebook-f"></i> <span>Visit My
+							Facebook page.</span></li>
+					<li><i class="fas fa-envelope "></i> <span>leyjh220602@gmail.com</span>
+					</li>
+				</ul>
+
+				<nav class="others">
+					<a href="#" class="on"></a> <a href="#"></a> <a href="#"></a> <a
+						href="#"></a>
+				</nav>
+			</section>
+		</div>
+				<div class="member6" style="position: absolute; margin-left: 155%">
+			<section>
+				<nav class="menu">
+					<a href="#"><i class="fas fa-bars"></i></a> <a href="#"><i
+						class="far fa-sticky-note"></i></a>
+				</nav>
+
+				<article class="profile">
+					<img src="img/member11.jpg" alt="프로필 이미지">
+
+					<h1 style="position: inherit;">오 명 주</h1>
+					<h2>LOTTE DEVELOPER</h2>
+
+					<a id="id_btn_member11" href="#" class="btnView">VIEW MORE</a>
 				</article>
 
 				<ul class="contact">
