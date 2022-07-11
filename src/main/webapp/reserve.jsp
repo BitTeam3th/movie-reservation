@@ -217,10 +217,9 @@ if (loginUser.getEmail() == null) {
 			let movieId = <%=movieTimeLists.get(0).get("id")%>;
 		<%}%>
 		
-		  
 		let movieTimeId = $('#time'+index+' option:selected').val();
 		let personnel = $('#personnel'+index+' option:selected').val();
-		location.href=getContextPath()+'/reservation?param=insert&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
+		location.href=getContextPath()+'/reservation?param=setSeat&userId='+userId+'&movieId='+movieId+'&movieTimeId='+movieTimeId+'&personnel='+personnel;
    }
     </script>
 </body>

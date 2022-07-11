@@ -160,7 +160,6 @@ public class MovieCrawlingDao {
 			rs = psmt.executeQuery();
 			psmt.clearParameters();
 			while(rs.next()) {
-				System.out.println(rs.getInt(1));
 				psmt = conn.prepareStatement(sql);
 				psmt.setInt(1, rs.getInt(1));
 				count = psmt.executeUpdate();
