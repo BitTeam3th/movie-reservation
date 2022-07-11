@@ -17,12 +17,17 @@ public class ReservationDto implements Serializable {
 	private int userId;
 	private String userEmail;
 	private String userName;
+
 	private String movieTitle;
 	private String movieImg;
 	private String movieTime;
 	private int reservationId;
 	private int personnel;
 	private String theater;
+	private int movieTimeId;
+	
+	public ReservationDto() {
+	}
 
 	public ReservationDto(int userId, String userEmail, String userName, String movieTitle, String movieImg,
 			String movieTime, int reservationId, int personnel, String theater) {
@@ -36,6 +41,14 @@ public class ReservationDto implements Serializable {
 		this.reservationId = reservationId;
 		this.personnel = personnel;
 		this.theater = theater;
+	}
+
+	public int getMovieTimeId() {
+		return movieTimeId;
+	}
+	
+	public void setMovieTimeId(int movieTimeId) {
+		this.movieTimeId = movieTimeId;
 	}
 
 	public int getUserId() {
