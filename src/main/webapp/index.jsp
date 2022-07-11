@@ -1,3 +1,4 @@
+<%@page import="dto.UserDto"%>
 <%@page import="dto.MovieDto"%>
 <%@page import="java.util.List"%> 
 <%@page import="dao.MovieDao"%>
@@ -8,6 +9,10 @@
 <%
 MovieDao dao = MovieDao.getInstance();
 List<MovieDto> lists = dao.getMovieList();
+UserDto loginUser = (UserDto) session.getAttribute("login");
+if (loginUser == null) {
+	loginUser = new UserDto();
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -28,14 +33,6 @@ List<MovieDto> lists = dao.getMovieList();
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
-   <%-- <h2>HI~</h2>
-   <button>예매하기</button>
-   <button
-      onclick="location.href='<%=request.getContextPath()%>/reservation?param=mypage'">마이페이지</button>
-   <button
-      onclick="location.href='<%=request.getContextPath()%>/user?param=login'">로그인</button>
-      
-       --%>
    <script type="text/javascript">
       function ViewSearch() {
          document.getElementById("SearchLayer").style.display = 'inline'
@@ -46,7 +43,7 @@ List<MovieDto> lists = dao.getMovieList();
    </script>
 
    <header id="header"></header>
-   <script src="./js/header.js"></script>
+   <script src="<%=request.getContextPath() %>/js/header.js"></script>
 
    <div class="wrap" id="wrap">
       <h1>
@@ -232,5 +229,25 @@ List<MovieDto> lists = dao.getMovieList();
        loacation.reload();
    }
    </script>
+		<%if (loginUser.getEmail() == null) {
+		%>
+	<script>
+			$('#mainLogin').show();
+			$('#mainRegi').show();
+			$('#mainMypage').hide();
+			$('#mainLogout').hide();
+    </script>
+     	   <%
+     	  	 } else {
+     	   %>
+	<script>
+			$('#mainLogout').show();
+			$('#mainMypage').show();
+			$('#mainLogin').hide();
+			$('#mainRegi').hide();
+    </script>
+		<%
+		}
+		%>
 </body>
 </html>

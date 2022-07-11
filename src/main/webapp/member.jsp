@@ -210,24 +210,25 @@ if (loginUser == null) {
 
 	<footer id="footer"></footer>
 	<script src="./js/footer.js"></script>
-	<script type="text/javascript">
-	   <%if (loginUser.getEmail() == null) {
-		   %>
-			   $('#mainLogin').show();
-			   $('#mainRegi').show();
-				$('#mainMypage').hide();
-				$('#mainLogout').hide();
-		   <%
-		  	 } else {
-		   %>
-			   $('#mainLogout').show();
-			   $('#mainMypage').show();
-			   $('#mainLogin').hide();
-			   $('#mainRegi').hide();
-		   <%
-			}
-		   %>
-	</script>
-
+		<%if (loginUser.getEmail() == null) {
+		%>
+	<script>
+			$('#mainLogin').show();
+			$('#mainRegi').show();
+			$('#mainMypage').hide();
+			$('#mainLogout').hide();
+    </script>
+     	   <%
+     	  	 } else {
+     	   %>
+	<script>
+			$('#mainLogout').show();
+			$('#mainMypage').show();
+			$('#mainLogin').hide();
+			$('#mainRegi').hide();
+    </script>
+		<%
+		}
+		%>
 </body>
 </html>
