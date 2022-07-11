@@ -37,10 +37,10 @@ public class ReservationController extends HttpServlet {
 	 */
 	public void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-
 		String param = req.getParameter("param");
+		ReservationDao dao = ReservationDao.getInstance();
+
 		if (param.equals("cancel")) {
-			ReservationDao dao = ReservationDao.getInstance();
 			if (dao.deleteReservation(Integer.parseInt(req.getParameter("reservationid")))) {
 				resp.sendRedirect("mypage.jsp");
 			} else {
@@ -48,6 +48,21 @@ public class ReservationController extends HttpServlet {
 			}
 		} else if (param.equals("mypage")) {
 			resp.sendRedirect("mypage.jsp");
+		} else if (param.equals("insert")) {
+			int userId = Integer.parseInt(req.getParameter("userId"));
+			int movieId = Integer.parseInt(req.getParameter("movieId"));
+			int movieTimeId = Integer.parseInt(req.getParameter("movieTimeId"));
+			int personnel = Integer.parseInt(req.getParameter("personnel"));
+
+			boolean isS = dao.insertReservation(userId, movieId, movieTimeId, personnel);
+
+			String msg = "RESERVE_SUC";
+			if (!isS) {
+				msg = "RESERVE_FAIL";
+			}
+
+			resp.sendRedirect("message.jsp?msg=" + msg);
+
 		}
 	}
 

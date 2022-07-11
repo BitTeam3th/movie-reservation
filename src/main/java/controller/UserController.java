@@ -58,7 +58,7 @@ public class UserController extends HttpServlet {
 
 			UserDao dao = UserDao.getInstance();
 			UserDto usr = dao.longin(new UserDto(email, pwd, null));
-
+			System.out.println(usr.getId());
 			HttpSession session = req.getSession();
 			String msg = "login";
 

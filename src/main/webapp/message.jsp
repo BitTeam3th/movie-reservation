@@ -19,7 +19,7 @@ if (msg.equals("OK")) { //회원가입 성공
 </script>
 
 <%
-} else if (msg.equals("NO")){ //회원가입 실패
+} else if (msg.equals("NO")) { //회원가입 실패
 %>
 <script type="text/javascript">
 	alert('가입실패! 다시 작성해 주십시오!');
@@ -33,11 +33,25 @@ if (msg.equals("OK")) { //회원가입 성공
 	location.href = 'app?param=main';
 </script>
 <%
-} else if(msg.equals("loginFail")) { //로그인 실패
+} else if (msg.equals("loginFail")) { //로그인 실패
 %>
 <script type="text/javascript">
 	alert('로그인 정보를 확인해주세요!');
 	location.href = 'user?param=login';
+</script>
+<%
+} else if (msg.equals("RESERVE_SUC")) { // 예매 성공
+%>
+<script type="text/javascript">
+	alert('예매 성공!');
+	location.href = 'app?param=main';
+</script>
+<%
+} else if (msg.equals("RESERVE_FAIL")) { // 예매 실패
+%>
+<script type="text/javascript">
+	alert('예매 실패~');
+	location.href = 'app?param=main';
 </script>
 <%
 }

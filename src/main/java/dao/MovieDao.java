@@ -132,8 +132,8 @@ public class MovieDao {
       
       List<HashMap<String, Object>> list=new ArrayList<HashMap<String, Object>>();
       
-      String sql = " SELECT m.id, m.title, m.img_src, mt.time, mt.theater, mt.max_person, mt.now_person "
-               + " FROM movie m, movie_time mt"
+      String sql = " SELECT m.id, m.title, m.img_src, mt.time, mt.theater, mt.max_person, mt.now_person, mt.id "
+               + " FROM movie m, movie_time mt "
                + " WHERE m.id = mt.movie_id AND m.id = ? ";
       
       Connection conn = null;
@@ -162,6 +162,7 @@ public class MovieDao {
             map.put("theater", rs.getString(5));
             map.put("maxPerson", rs.getString(6));
             map.put("nowPerson", rs.getString(7));
+            map.put("movieTimeId", rs.getInt(8));
             
             list.add(map);
          }
