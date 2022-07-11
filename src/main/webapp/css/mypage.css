@@ -1086,7 +1086,7 @@ ver : 1.01 20191219 2502 line > �앹뾽硫붾돱 怨좎젙�믪씠媛� ��
 .mypage_top_area .array_box .txt:first-child {margin-left:0;}
 .mypage_top_area .txt_notice {padding-top:0;}
 /* 寃곗젣�댁뿭_由ъ뒪�� */
-.ticket_list {position:relative; padding:40px 50px 173px 205px; min-height:523px; background:#f8f8f8; box-sizing:border-box; -webkit-box-sizing:border-box; font-family:S-CoreDream-4Regular;}
+.ticket_list {position:relative; padding:40px 50px 50px 205px; min-height:523px; background:#f8f8f8; box-sizing:border-box; -webkit-box-sizing:border-box; font-family:S-CoreDream-4Regular;overflow-x: auto;}
 .ticket_list::after,
 .ticket_list::before {content:''; position:absolute; left:175px; top:0; width:1px;}
 .ticket_list::after {height:46px; background-color:#f8f8f8;}
