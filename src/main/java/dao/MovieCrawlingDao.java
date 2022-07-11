@@ -140,4 +140,36 @@ public class MovieCrawlingDao {
 		}
 		return idx;
 	}
+	
+	public boolean aaa() {
+		
+		String sql1 = " select id "
+				+ " from movie_time ";
+		
+		String sql = " INSERT INTO movie_seat(movie_time_id) "
+				   + " VALUES(?) ";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		conn = DBConnection.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql1);
+			
+			rs = psmt.executeQuery();
+			psmt.clearParameters();
+			while(rs.next()) {
+				System.out.println(rs.getInt(1));
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, rs.getInt(1));
+				count = psmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			System.out.println("timeSave fail");
+		} finally {
+			DBClose.close(conn, psmt, null);
+		}
+		return count>0?true:false;
+	}
 }

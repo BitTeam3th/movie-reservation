@@ -45,7 +45,6 @@ Calendar cal = Calendar.getInstance();
 .ticket_list {
 	padding:40px 50px 50px 205px;
 }
-
 </style>
 
 </head>
