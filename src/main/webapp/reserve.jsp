@@ -1,3 +1,4 @@
+
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -39,7 +40,6 @@ List<String> movieTheaters = (List<String>)request.getAttribute("movieTheater");
                <div class="wrap_reserve">
                   <h2 class="hidden">예매하기</h2>
                   <div id="reserveStep02" class="section_step_con step02 active">
-
                      <div class="article article_seat">
                         <div class="group_top">
                            <h4 class="tit">인원/좌석 선택</h4>
@@ -130,10 +130,28 @@ List<String> movieTheaters = (List<String>)request.getAttribute("movieTheater");
    <footer id="footer"></footer>
    <script src="./js/footer.js"></script>
 
-    <script>
-        
-        var maskHeight = $(document).height();
-        var maskWidth = $(window).width();
+	<script>
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+
+		$('#layer').css({
+			'width' : maskWidth,
+			'height' : maskHeight
+		});
+		$("#layer").css("position", "absolute");
+		$("#layer").css(
+				"top",
+				Math.max(0,
+						(($(window).height() - $("#layer").outerHeight()) / 2)
+								+ $(window).scrollTop() - 100)
+						+ "px");
+		$("#layer").css(
+				"left",
+				Math.max(0,
+						(($(window).width() - $("#layer").outerWidth()) / 2)
+								+ $(window).scrollLeft())
+						+ "px");
+	</script>
 
         
         $('#layer').css({ 'width': maskWidth, 'height': maskHeight });
