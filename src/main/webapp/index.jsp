@@ -223,22 +223,26 @@ if (loginUser == null) {
    function closeLayer() {
        loacation.reload();
    }
-   <%if (loginUser.getEmail() == null) {
-	   %>
-	   		$('#mainLogin').show();
-	   		$('#mainRegi').show();
+   </script>
+		<%if (loginUser.getEmail() == null) {
+		%>
+	<script>
+			$('#mainLogin').show();
+			$('#mainRegi').show();
 			$('#mainMypage').hide();
 			$('#mainLogout').hide();
-	   <%
-	  	 } else {
-	   %>
-		   $('#mainLogout').show();
-		   $('#mainMypage').show();
-		   $('#mainLogin').hide();
-		   $('#mainRegi').hide();
-	   <%
+    </script>
+     	   <%
+     	  	 } else {
+     	   %>
+	<script>
+			$('#mainLogout').show();
+			$('#mainMypage').show();
+			$('#mainLogin').hide();
+			$('#mainRegi').hide();
+    </script>
+		<%
 		}
-	   %>
-   </script>
+		%>
 </body>
 </html>

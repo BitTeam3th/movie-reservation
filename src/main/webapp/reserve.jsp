@@ -31,21 +31,23 @@ if (loginUser == null) {
       <script src="./js/jQuery.js"></script>
       <!-- <script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script> -->
       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-      <script type="text/javascript">
       <%if (loginUser.getEmail() == null) {
     	   %>
+      <script type="text/javascript">
     	   location.href=<%=request.getContextPath()%>'/app?param=login';
+      </script>
     	   <%
     	  	 } else {
     	   %>
+      <script type="text/javascript">
     		   $('#mainLogout').show();
     		   $('#mainMypage').show();
     		   $('#mainLogin').hide();
     		   $('#mainRegi').hide();
+      </script>
     	   <%
     		}
     	   %>
-      </script>
 </head>
 <body>   
    
@@ -177,23 +179,26 @@ if (loginUser == null) {
         $("#layer").css("position", "absolute");
         $("#layer").css("top", Math.max(0, (($(window).height() - $("#layer").outerHeight()) / 2) + $(window).scrollTop() - 100) + "px");
         $("#layer").css("left", Math.max(0, (($(window).width() - $("#layer").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+    </script>
         <%if (loginUser.getEmail() == null) {
-     	   %>
-		   		$('#mainLogin').show();
-		   		$('#mainRegi').show();
-				$('#mainMypage').hide();
-				$('#mainLogout').hide();
+   	   	%>
+	<script>
+			$('#mainLogin').show();
+			$('#mainRegi').show();
+			$('#mainMypage').hide();
+			$('#mainLogout').hide();
+    </script>
      	   <%
      	  	 } else {
      	   %>
-     		   $('#mainLogout').show();
-     		   $('#mainMypage').show();
-     		   $('#mainLogin').hide();
-     		   $('#mainRegi').hide();
+	<script>
+			$('#mainLogout').show();
+			$('#mainMypage').show();
+			$('#mainLogin').hide();
+			$('#mainRegi').hide();
+    </script>
      	   <%
      		}
         	%>
-    </script>
-   
 </body>
 </html>
