@@ -110,6 +110,7 @@ if (loginUser == null) {
                 <span style="display:none" id="ticketingRate"></span>
                 <span id="audienceNumber"></span>
                 <span id="genre"></span>
+                <br/>
                 <span id="openDate"></span>
                 <span id="runningTime"></span>
                 <span id="director"></span>
@@ -207,11 +208,13 @@ if (loginUser == null) {
        document.getElementById('rating').innerText= "평점 : " + input.children[0].children[0].children[4].value + " | ";
 
        
-       document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value + " | ";
-       document.getElementById('audienceNumber').innerText= "관객수 : "+document.getElementById('audienceNumber').innerText + " | ";
+       document.getElementById('audienceNumber').innerText= input.children[0].children[0].children[6].value ;
+       var ttt1 = new Intl.NumberFormat('en-US').format(document.getElementById('audienceNumber').innerText);
+       document.getElementById('audienceNumber').innerText= "관객수 : " + ttt1  + " | ";
        
        document.getElementById('genre').innerText= input.children[0].children[0].children[7].value + " | "; 
-       document.getElementById('openDate').innerText= input.children[0].children[0].children[8].value + " | ";
+       document.getElementById('openDate').innerText= "개봉일 : " +input.children[0].children[0].children[8].value + " | ";
+       
        document.getElementById('runningTime').innerText= "상영시간 : " + input.children[0].children[0].children[9].value + " | ";
        document.getElementById('director').innerText= input.children[0].children[0].children[10].value + " | ";
        document.getElementById('cast').innerText= input.children[0].children[0].children[11].value + " | ";

@@ -87,22 +87,9 @@ Calendar cal = Calendar.getInstance();
 									</dd>
 								</dl>
 								<dl>
-									<dt>상영관</dt>
-									<dd>
-										<%=reservation.getTheater()%><a href="#none"
-											class="btn_col4 ty2 rnd" title="상세페이지 이동">상영관보기</a>
-									</dd>
-								</dl>
-								<dl>
 									<dt>관람인원</dt>
 									<dd><%=reservation.getPersonnel()%>
 										명
-									</dd>
-								</dl>
-								<dl>
-									<dt>좌석</dt>
-									<dd>
-										<em>I5</em>
 									</dd>
 								</dl>
 								<div class="btn_wrap">
