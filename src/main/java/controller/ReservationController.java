@@ -42,12 +42,12 @@ public class ReservationController extends HttpServlet {
 		if (param.equals("cancel")) {
 			ReservationDao dao = ReservationDao.getInstance();
 			if (dao.deleteReservation(Integer.parseInt(req.getParameter("reservationid")))) {
-				resp.sendRedirect("user/mypage.jsp");
+				resp.sendRedirect("mypage.jsp");
 			} else {
 				System.out.println("실패");
 			}
 		} else if (param.equals("mypage")) {
-			resp.sendRedirect("user/mypage.jsp");
+			resp.sendRedirect("mypage.jsp");
 		}
 	}
 

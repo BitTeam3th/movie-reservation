@@ -31,7 +31,7 @@ public class AppController extends HttpServlet {
 			resp.sendRedirect("user/regi.jsp");
 		} 
 		else if (param.equals("mypage")) {
-			resp.sendRedirect("user/mypage.jsp");
+			resp.sendRedirect("mypage.jsp");
 		}
 		else if (param.equals("member")) {
 			resp.sendRedirect("member.jsp");
