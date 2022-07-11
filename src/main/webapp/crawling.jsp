@@ -16,6 +16,8 @@ table{
 
 </head>
 <body>
+<!-- <button type="button" id="aaa">dfasdfasdf</button> -->
+
 <h2>영화리스트 받아오기</h2>
 <button type="button" id="getmovies">현재상영작</button>
 <br><br>
@@ -31,6 +33,21 @@ table{
 
 <script type="text/javascript">
 $(function () {
+	$("#aaa").click(function() {
+		$.ajax({
+			type:"post",
+			url:"./moviecrawling?param=aaa",
+			data:{},
+			success:function( data ){
+				alert("success");
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+		
+	});
+	
 	/* 현재 상영작 받아오기(롯데시네마 기준) */
 	$("#getmovies").click(function() {
 		
